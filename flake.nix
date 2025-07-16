@@ -1,19 +1,6 @@
 {
     description = "NixOS Dotfiles";
 
-    inputs = {
-        # Nixpkgs
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-
-        # Home Manager (Standalone Installation)
-        home-manager.url = "github:nix-community/home-manager/master";
-        home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-        # NixVim
-        nixvim.url = "github:nix-community/nixvim";
-        nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     outputs = inputs@{ self, ... }:
     let
 
@@ -72,5 +59,18 @@
                 inherit userSettings;
             };
         };
+    };
+
+    inputs = {
+        # Nixpkgs
+        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+        # Home Manager (Standalone Installation)
+        home-manager.url = "github:nix-community/home-manager/master";
+        home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+        # NixVim
+        nixvim.url = "github:nix-community/nixvim";
+        nixvim.inputs.nixpkgs.follows = "nixpkgs";
     };
 }

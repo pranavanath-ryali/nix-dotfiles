@@ -7,7 +7,17 @@
     ];
 
     home.packages = with pkgs; [
-        vscode
+        discord
+
         obsidian
+        lorien
+
+        vscode
+
+        easyeffects
+        strawberry
+
+        gnome-clocks
+        gnome-calculator
     ];
 }
