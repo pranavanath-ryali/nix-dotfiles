@@ -1,5 +1,9 @@
 { userSettings, ... }:
 {
+    imports = [
+        ../packages/home.nix
+    ];
+
     programs.home-manager.enable = true;
 
     home.username = userSettings.username;

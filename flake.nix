@@ -8,6 +8,10 @@
         # Home Manager (Standalone Installation)
         home-manager.url = "github:nix-community/home-manager/master";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+        # NixVim
+        nixvim.url = "github:nix-community/nixvim";
+        nixvim.inputs.nixpkgs.follows = "nixpkgs";
     };
 
     outputs = inputs@{ self, ... }:
@@ -30,6 +34,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "gnome";
+            browser = "floorp";
         };
         
         pkgs = import inputs.nixpkgs {
