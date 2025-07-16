@@ -15,8 +15,8 @@ let
         ] ++ config.theme_hyprland_settings.exec-once;
 
         input = {
-            kb_layout = systemSettings.kb_layout;
-            kb_variant = systemSettings.kb_variant;
+            kb_layout = systemSettings.kbLayout;
+            kb_variant = systemSettings.kbVariant;
             kb_options = "caps:swapecape";
 
             follow_mouse = 1;
@@ -153,7 +153,7 @@ let
 in
 {
     imports = [
-        ../../../pkgs/apps/terminal/kitty.nix
+        ../../packages/terminal/kitty.nix
     ];
 
     home.packages = with pkgs; [
