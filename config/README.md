@@ -1,0 +1,1 @@
+My personal NixOS flake dotfiles :) If you plan on using my dotfiles, please replace the hardware-configuration.nix file with your own.
