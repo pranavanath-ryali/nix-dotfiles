@@ -2,6 +2,7 @@
 # and may be overwritten by future invocations.  Please make changes
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
+
 {
     imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
@@ -13,12 +14,12 @@
     boot.extraModulePackages = [ ];
 
     fileSystems."/" = {
-        device = "/dev/disk/by-uuid/60906409-0b82-4e27-9e16-46440e2780f5";
+        device = "/dev/disk/by-uuid/ab6e5cb6-fbb9-4030-b199-8438982a5a8e";
         fsType = "ext4";
     };
 
     fileSystems."/boot" = {
-        device = "/dev/disk/by-uuid/0B13-345A";
+        device = "/dev/disk/by-uuid/D5DF-30D0";
         fsType = "vfat";
         options = [ "fmask=0077" "dmask=0077" ];
     };

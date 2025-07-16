@@ -44,6 +44,13 @@
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    users.users.${userSettings.username} = {
+        isNormalUser = true;
+        description = ${userSettings.username};
+        extraGroups = [ "networkmanager" "wheel" ];
+        packages = with pkgs; [];
+    };
+
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
