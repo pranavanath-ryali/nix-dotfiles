@@ -1,7 +1,7 @@
 { config, lib, userSettings, ... }:
 {
     options = with lib; with types; {
-        theme_hyprland_settings = mkOption { type = attrs };
+        theme_hyprland_settings = mkOption { type = attrs; };
     };
 
     config = {
