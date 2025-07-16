@@ -28,6 +28,8 @@
             username = "pranavanath";
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
+
+            wm = "gnome";
         };
         
         pkgs = import inputs.nixpkgs {
