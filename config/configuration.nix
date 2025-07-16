@@ -39,14 +39,14 @@
     # Configure keymap in X11
     services.xserver.xkb = {
         layout = systemSettings.kbLayout;
-        variant = kbVariant;
+        variant = systemSettings.kbVariant;
     };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     users.users.${userSettings.username} = {
         isNormalUser = true;
-        description = ${userSettings.username};
+        description = userSettings.username;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [];
     };
