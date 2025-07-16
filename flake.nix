@@ -26,6 +26,8 @@
 
         userSettings = {
             username = "pranavanath";
+            gitUserName = "Nitrostation-Dev";
+            gitUserEmail = "dev.nitrostation@gmail.com";
         };
         
         pkgs = import inputs.nixpkgs {
