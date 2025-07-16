@@ -15,9 +15,6 @@
         vscode
 
         easyeffects
-        strawberry
-
-        gnome-clocks
-        gnome-calculator
+        # strawberry
     ];
 }

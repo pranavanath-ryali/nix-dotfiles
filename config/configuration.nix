@@ -10,6 +10,7 @@
         ../packages/configuration.nix
 
         (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
+        (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
     ];
 
     boot.loader.systemd-boot.enable = true;

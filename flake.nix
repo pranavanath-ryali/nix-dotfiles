@@ -20,7 +20,8 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "gnome";
+            wm = "hyprland";
+            theme = "default";
             browser = "floorp";
         };
         
@@ -68,6 +69,9 @@
         # Home Manager (Standalone Installation)
         home-manager.url = "github:nix-community/home-manager/master";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Hyprland
+        hyprland.url = "github:hyprwm/Hyprland";
 
         # NixVim
         nixvim.url = "github:nix-community/nixvim";

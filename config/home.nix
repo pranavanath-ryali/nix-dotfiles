@@ -2,6 +2,8 @@
 {
     imports = [
         ../packages/home.nix
+
+        (./. + "../../home/wm" + ("/" + userSettings.wm) + ".nix")
     ];
 
     programs.home-manager.enable = true;
