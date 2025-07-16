@@ -7,7 +7,7 @@
         ../system/drivers/pipewire.nix
         ../system/drivers/printing.nix
 
-        (./. + "../system/wm/" + userSettings.wm ".nix")
+        (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
     ];
 
     boot.loader.systemd-boot.enable = true;
