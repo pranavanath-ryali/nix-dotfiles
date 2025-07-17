@@ -22,7 +22,7 @@
 
             wm = "hyprland";
             theme = "default";
-            browser = "floorp";
+            browser = "firefox";
         };
         
         pkgs = import inputs.nixpkgs {
