@@ -21,7 +21,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "hyprland";
-            theme = "default";
+            theme = "catppuccin-latte";
             browser = "firefox";
         };
         
@@ -72,6 +72,10 @@
 
         # Hyprland
         hyprland.url = "github:hyprwm/Hyprland";
+
+        # Stylix
+        stylix.url = "github:danth/stylix";
+        stylix.inputs.nixpkgs.follows = "nixpkgs";
 
         # NixVim
         nixvim.url = "github:nix-community/nixvim";
