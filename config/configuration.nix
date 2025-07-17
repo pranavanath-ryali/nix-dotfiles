@@ -11,6 +11,7 @@
 
         (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
         (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
+        (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/configuration.nix")
     ];
 
     boot.loader.systemd-boot.enable = true;

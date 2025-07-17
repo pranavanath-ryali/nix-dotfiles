@@ -5,6 +5,7 @@
 
         (./. + "../../home/wm" + ("/" + userSettings.wm) + ".nix")
         (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
+        (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/home.nix")
     ];
 
     programs.home-manager.enable = true;
