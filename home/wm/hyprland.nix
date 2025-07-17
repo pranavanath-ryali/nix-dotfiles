@@ -19,6 +19,8 @@ let
             kb_variant = systemSettings.kbVariant;
             kb_options = "caps:swapecape";
 
+            numlock_by_default = true;
+
             follow_mouse = 1;
             sensitivity = 0.2;
             accel_profile = "0.2144477506 0.000 0.307 0.615 1.077 1.539 2.002 2.505 3.208 3.910 4.613 5.315 6.018 6.720 7.423 8.125 8.828 9.530 10.233 10.935 12.387";
@@ -39,6 +41,15 @@ let
             workspace_swipe_fingers = 3;
             workspace_swipe_distance = 800;
             workspace_swipe_min_speed_to_force = 50;
+        };
+
+        dwindle = {
+            pseudotile = true;
+            preserve_split = true;
+        };
+
+        master = {
+            new_status = "master";
         };
 
         "$mainMod" = "SUPER";

@@ -69,6 +69,17 @@
 
                 profileNames = [ "my-profile" ];
             };
+
+            neovide.enable = true;
+            nixvim = {
+                enable = true;
+                plugin = "mini.base16";
+                transparentBackground = {
+                    main = true;
+                    numberLine = true;
+                    signColumn = true;
+                };
+            };
         };
     };
 }

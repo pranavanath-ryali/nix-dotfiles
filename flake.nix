@@ -23,6 +23,8 @@
             wm = "hyprland";
             theme = "catppuccin-latte";
             browser = "firefox";
+
+            musicDir = "/mnt/Local Disk/Music - new/"
         };
         
         pkgs = import inputs.nixpkgs {
