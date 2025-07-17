@@ -166,6 +166,8 @@ in
         wlogout
         hyprshot
 
+        hyprpaper
+
         # zathura
         qimgv
 
@@ -183,7 +185,7 @@ in
         package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
         portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
 
-        settings = config.theme_hyprland_settings // hyprland_settings;
+        settings = lib.mkForce config.theme_hyprland_settings // hyprland_settings;
     };
 
     # HYPRIDLE CONFIG

@@ -7,7 +7,7 @@
     stylix = {
         enable = true;
 
-        polarity = "dark";
+        polarity = "light";
         base16Scheme = ../../base16.yaml;
         image = ../../wallpaper.png;
 
@@ -29,5 +29,9 @@
                 name = "Noto Color Emoji";
             };
         };
+
+        targets.gtk.enable = true;
+        targets.qt.enable = true;
+        targets.qt.platform = "qtct";
     };
 }

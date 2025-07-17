@@ -1,13 +1,13 @@
-{ inputs, lib, pkgs, config, userSettings, ... }:
+{ inputs, pkgs, config, ... }:
 {
     imports = [
-        inputs.stylix.homeManagerModules.stylix
+        inputs.stylix.homeModules.stylix
     ];
 
     stylix = {
         enable = true;
 
-        polarity = "dark";
+        polarity = "light";
         base16Scheme = ../../base16.yaml;
         image = ../../wallpaper.png;
 
@@ -28,17 +28,47 @@
                 package = pkgs.noto-fonts-emoji;
                 name = "Noto Color Emoji";
             };
-            sizes = "12";
+            sizes = {
+                applications = 12;
+                desktop = 12;
+                popups = 12;
+                terminal = 12;
+            };
         };
 
-        # iconTheme = {
-        #     enable = true;
-        #     package = config.theme_stylix_icons_package;
-        #     dark = config.theme_stylix_icons_dark;
-        #     light = config.theme_stylix_icons_light;
-        # };
+        iconTheme = {
+            enable = true;
+            package = pkgs.catppuccin-papirus-folders;
+            dark = "Papirus-Dark";
+            light = "Papirus-Light";
+        };
 
-        autoEnable = false;
-        targets.vscode.enable = false;
+        autoEnable = true;
+        # targets = {
+        #     gtk.enable = true;
+        #     gtk.flatpakSupport.enable = true;
+        #     qt.enable = true;
+        #     qt.platform = "qtct";
+
+        #     hyprland.enable = true;
+        #     hyprland.hyprpaper.enable = true;
+        #     hyprpaper.enable = true;
+
+        #     hyprlock.enable = true;
+        #     hyprlock.useWallpaper = config.stylix.image != null;
+
+        #     kitty = {
+        #         enable = true;
+        #         variant256Colors = true;
+        #     };
+
+        #     firefox = {
+        #         enable = true;
+        #         colorTheme.enable = true;
+        #         firefoxGnomeTheme.enable = true;
+
+        #         profileNames = [ "my-profile" ];
+        #     };
+        # };
     };
 }
