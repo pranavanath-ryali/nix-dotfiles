@@ -14,24 +14,24 @@
         fonts = {
             serif = {
                 package = pkgs.ubuntu-sans;
-                name = "Ubuntu Regular";
+                name = "UbuntuSans";
             };
             sansSerif = {
                 package = pkgs.ubuntu-sans;
-                name = "Ubuntu Regular";
+                name = "UbuntuSans";
             };
             monospace = {
                 package = pkgs.nerd-fonts.ubuntu-sans;
-                name = "UbuntuMono Nerd Font";
+                name = "UbuntuSansMono Nerd Font";
             };
             emoji = {
                 package = pkgs.noto-fonts-emoji;
                 name = "Noto Color Emoji";
             };
             sizes = {
-                applications = 12;
-                desktop = 12;
-                popups = 12;
+                applications = 11;
+                desktop = 11;
+                popups = 11;
                 terminal = 12;
             };
         };
@@ -43,32 +43,32 @@
             light = "Papirus-Light";
         };
 
-        autoEnable = true;
-        # targets = {
-        #     gtk.enable = true;
-        #     gtk.flatpakSupport.enable = true;
-        #     qt.enable = true;
-        #     qt.platform = "qtct";
+        autoEnable = false;
+        targets = {
+            gtk.enable = true;
+            gtk.flatpakSupport.enable = true;
+            qt.enable = true;
+            qt.platform = "qtct";
 
-        #     hyprland.enable = true;
-        #     hyprland.hyprpaper.enable = true;
-        #     hyprpaper.enable = true;
+            hyprland.enable = true;
+            hyprland.hyprpaper.enable = true;
+            hyprpaper.enable = true;
 
-        #     hyprlock.enable = true;
-        #     hyprlock.useWallpaper = config.stylix.image != null;
+            hyprlock.enable = true;
+            hyprlock.useWallpaper = config.stylix.image != null;
 
-        #     kitty = {
-        #         enable = true;
-        #         variant256Colors = true;
-        #     };
+            kitty = {
+                enable = true;
+                variant256Colors = true;
+            };
 
-        #     firefox = {
-        #         enable = true;
-        #         colorTheme.enable = true;
-        #         firefoxGnomeTheme.enable = true;
+            firefox = {
+                enable = true;
+                colorTheme.enable = true;
+                firefoxGnomeTheme.enable = true;
 
-        #         profileNames = [ "my-profile" ];
-        #     };
-        # };
+                profileNames = [ "my-profile" ];
+            };
+        };
     };
 }
