@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
     programs.neovide = {
         enable = true;
@@ -6,7 +6,7 @@
         settings = {
             font = {
                 normal = [ "monospace" ];
-                size = 12.0;
+                size = lib.mkForce 12.0;
             };
         };
     };

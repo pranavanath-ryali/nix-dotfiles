@@ -19,5 +19,6 @@
 
         easyeffects
         # strawberry
+        clementine
     ];
 }

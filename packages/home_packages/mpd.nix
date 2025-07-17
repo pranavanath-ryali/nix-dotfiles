@@ -2,7 +2,7 @@
 {
 	services.mpd = {
 		enable = true;
-		musicDirectory = userSettings.music_dir;
+		musicDirectory = userSettings.musicDir;
 		extraConfig =
 ''
 audio_output {
@@ -12,12 +12,12 @@ audio_output {
 '';
 	};
 
-	services.mpdris2 = {
-		enable = true;
+	# services.mpdris2 = {
+	# 	enable = true;
 
-		notifications = true;
-		mpd.musicDirectory = userSettings.musicDir;
-	};
+	# 	notifications = true;
+	# 	mpd.musicDirectory = userSettings.musicDir;
+	# };
 
-	home.packages = with pkgs; [ mpd mpdris2 mpc sutils ];
+	home.packages = with pkgs; [ mpd mpc sutils ];
 }
