@@ -6,6 +6,7 @@
         ../system/drivers/bluetooth.nix
         ../system/drivers/pipewire.nix
         ../system/drivers/printing.nix
+        ../system/drivers/graphics.nix
 
         ../packages/configuration.nix
 
