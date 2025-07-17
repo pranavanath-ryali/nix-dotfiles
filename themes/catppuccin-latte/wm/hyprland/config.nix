@@ -18,7 +18,7 @@
                 layout = "dwindle";
 
                 "col.active_border" = "rgba(eff1f5ff)";
-                "col.inactive_border" = "rgba(dce0e8ff)";
+                "col.inactive_border" = "rgba(eff1f5ff)";
             };
 
             decoration = {
