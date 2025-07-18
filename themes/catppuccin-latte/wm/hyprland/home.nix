@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, pkgs, config, userSettings, ... }:
 {
     imports = [
         inputs.stylix.homeModules.stylix
@@ -7,7 +7,7 @@
         ../../../../packages/home_packages/waybar.nix
     ];
 
-    home.file."/home/${pranavanath}/.config/waybar".source = "../../waybar/";
+    home.file.".config/waybar".source = ".dotfiles/themes/catppuccin-latte/waybar";
 
     stylix = {
         enable = true;
