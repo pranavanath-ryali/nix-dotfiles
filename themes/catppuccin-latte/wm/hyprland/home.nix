@@ -3,8 +3,11 @@
     imports = [
         inputs.stylix.homeModules.stylix
 
-        ../../../../packages/home_packages/quickshell.nix
+        # ../../../../packages/home_packages/quickshell.nix
+        ../../../../packages/home_packages/waybar.nix
     ];
+
+    home.file."/home/${pranavanath}/.config/waybar".source = "../../waybar/";
 
     stylix = {
         enable = true;
