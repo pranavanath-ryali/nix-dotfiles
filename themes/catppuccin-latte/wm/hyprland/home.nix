@@ -3,11 +3,9 @@
     imports = [
         inputs.stylix.homeModules.stylix
 
-        # ../../../../packages/home_packages/quickshell.nix
-        ../../../../packages/home_packages/waybar.nix
+        ../../../../packages/home_packages/quickshell.nix
+        # ../../../../packages/home_packages/waybar.nix
     ];
-
-    home.file.".config/waybar".source = ".dotfiles/themes/catppuccin-latte/waybar";
 
     stylix = {
         enable = true;
