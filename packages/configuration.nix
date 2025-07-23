@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
     imports = [
+        ./system_packages/fish.nix
         ./system_packages/steam.nix
         ./system_packages/nh.nix
         ./system_packages/localsend.nix

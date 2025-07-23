@@ -47,6 +47,8 @@
         description = userSettings.username;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [];
+
+        shell = pkgs.fish;
     };
 
     security.rtkit.enable = true;

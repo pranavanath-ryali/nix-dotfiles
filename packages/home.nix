@@ -3,7 +3,6 @@
     imports = [
         (./. + "../../packages/browser" + ("/" + userSettings.browser) + ".nix")
         
-        ./home_packages/fish.nix
         ./home_packages/nixvim.nix
         ./home_packages/neovide.nix
         ./home_packages/mpd.nix
