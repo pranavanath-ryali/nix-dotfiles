@@ -25,6 +25,6 @@
 
         bottles
 
-        gdlauncher-carbon
+        # gdlauncher-carbon
     ];
 }
