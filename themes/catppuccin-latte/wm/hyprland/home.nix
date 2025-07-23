@@ -60,6 +60,8 @@
             hyprlock.enable = true;
             hyprlock.useWallpaper = config.stylix.image != null;
 
+            fish.enable = true;
+
             kitty = {
                 enable = true;
                 variant256Colors = true;

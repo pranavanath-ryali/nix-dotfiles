@@ -33,5 +33,7 @@
         targets.gtk.enable = true;
         targets.qt.enable = true;
         targets.qt.platform = "qtct";
+
+        targets.fish.enable = true;
     };
 }
