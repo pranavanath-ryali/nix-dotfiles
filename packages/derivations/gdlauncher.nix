@@ -1,9 +1,10 @@
 { appimageTools, fetchurl }:
 
-appimageTools.wrapType1 {
-	name = "gdlauncher";
+appimageTools.wrapType2 {
+	pname = "gdlauncher";
+	version = "2.0.24";
 	src = fetchurl {
-		url = "https://github.com/gorilla-devs/GDLauncher/releases/download/v1.1.30/GDLauncher-linux-setup.AppImage";
-		hash = "sha256-4cXT3exhoMAK6gW3Cpx1L7cm9Xm0FK912gGcRyLYPwM=";
+		url = "https://gdlauncher.com/download/linux";
+		hash = "sha256-d5ZvWSLA/7mY0540TDLMW9qmEFA5xC6Zd83IWakOmGo=";
 	};
 }

@@ -9,6 +9,8 @@
         ./home_packages/mpd.nix
         ./home_packages/rmpc.nix
         ./home_packages/retroarch.nix
+
+        ./home_packages/gdlauncher.nix
     ];
 
     home.packages = with pkgs; [
