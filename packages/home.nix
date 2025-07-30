@@ -8,7 +8,7 @@
         ./home_packages/neovide.nix
         ./home_packages/mpd.nix
         ./home_packages/rmpc.nix
-        ./home_packages/retroarch.nix
+        # ./home_packages/retroarch.nix
 
         ./home_packages/gdlauncher.nix
     ];
@@ -18,7 +18,7 @@
 
         obsidian
         lorien
-
+        
         vscode
 
         easyeffects

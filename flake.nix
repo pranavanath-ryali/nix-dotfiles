@@ -20,8 +20,8 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "hyprland";
-            theme = "catppuccin-latte";
+            wm = "plasma";
+            theme = "default";
             browser = "firefox";
 
             musicDir = "/mnt/Local Disk/Music - new/";
@@ -32,6 +32,8 @@
             config = {
                 allowUnfree = true;
                 allowUnfreePredicate = (_: true);
+
+                android_sdk.accept_license = true;
             };
         };
         lib = inputs.nixpkgs.lib;

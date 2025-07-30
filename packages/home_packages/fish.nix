@@ -4,6 +4,9 @@
 		enable = true;
 		interactiveShellInit = ''
 set fish_greeting # Disable greeting
+
+alias gd="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia gdlauncher"
+alias dots="cd ~/.dotfiles && nvim ."
 		'';
 		plugins = [
 			{ name = "grc"; src = pkgs.fishPlugins.grc.src; }
