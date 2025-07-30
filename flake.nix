@@ -21,7 +21,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "gnome";
-            theme = "default";
+            theme = "catppuccin-latte";
             browser = "firefox";
 
             musicDir = "/mnt/Local Disk/Music - new/";
