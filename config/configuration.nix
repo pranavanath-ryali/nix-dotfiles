@@ -47,16 +47,12 @@
         description = userSettings.username;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [];
-
-        shell = pkgs.fish;
     };
 
     security.rtkit.enable = true;
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-
-    services.flatpak.enable = true;
 
     system.stateVersion = "25.05";
 }

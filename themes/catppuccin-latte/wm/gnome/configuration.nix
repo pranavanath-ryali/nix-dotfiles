@@ -30,9 +30,15 @@
             };
         };
 
+        cursor = {
+            package = pkgs.catppuccin-cursors.latteLight;
+            name = "catppuccin-latte-light";
+            size = 24;
+        };
+
         targets.gtk.enable = true;
         targets.qt.enable = true;
-        targets.qt.platform = "qtct";
+        # targets.qt.platform = "qtct";
 
         targets.fish.enable = true;
     };
