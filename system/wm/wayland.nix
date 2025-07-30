@@ -2,7 +2,6 @@
 {
     environment.systemPackages = [ pkgs.wayland ];
 
-    services.displayManager.gdm.enable = true;
     services.xserver = {
         enable = true;
         xkb = {

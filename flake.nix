@@ -20,7 +20,7 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "plasma";
+            wm = "gnome";
             theme = "default";
             browser = "firefox";
 
