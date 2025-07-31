@@ -20,9 +20,9 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "gnome";
+            wm = "hyprland";
             theme = "catppuccin-latte";
-            browser = "firefox";
+            browser = "zen";
 
             musicDir = "/mnt/Local Disk/Music - new/";
         };
@@ -88,5 +88,9 @@
         # NixVim
         nixvim.url = "github:nix-community/nixvim";
         nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Zen Browser
+        zen-browser.url = "github:0xc000022070/zen-browser-flake";
+        zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     };
 }

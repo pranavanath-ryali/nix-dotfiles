@@ -45,7 +45,7 @@
 
         cursor = {
             package = pkgs.catppuccin-cursors.latteLight;
-            name = "catppuccin-latte-light";
+            name = "catppuccin-latte-light-cursors";
             size = 24;
         };
 
