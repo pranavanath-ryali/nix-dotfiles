@@ -36,7 +36,7 @@
                     range = 10;
                     render_power = 4;
                     ignore_window = true;
-                    color = "rgba(4c4f69ff)";
+                    color = "rgba(11111bff)";
                 };
 
                 blur = {

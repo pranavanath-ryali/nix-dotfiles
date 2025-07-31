@@ -21,7 +21,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "hyprland";
-            theme = "catppuccin-latte";
+            theme = "catppuccin-mocha";
             browser = "zen";
 
             musicDir = "/mnt/Local Disk/Music - new/";
