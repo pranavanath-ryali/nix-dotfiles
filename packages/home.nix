@@ -22,14 +22,12 @@
         vscode
 
         easyeffects
-        # strawberry
         clementine
 
         bottles
-
-        # gdlauncher-carbon
-
+        
         unityhub
-        jetbrains.rider
+        jetbrains-toolbox
+        # jetbrains.rider
     ];
 }
