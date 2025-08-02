@@ -20,8 +20,8 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "hyprland";
-            theme = "catppuccin-mocha";
+            wm = "illogical-impulse";
+            theme = "default";
             browser = "zen";
 
             musicDir = "/mnt/Local Disk/Music - new/";
@@ -76,6 +76,10 @@
 
         # Hyprland
         hyprland.url = "github:hyprwm/Hyprland";
+
+        # Illogical Impulse Shell
+        illogical-impulse.url = "github:xBLACKICEx/end-4-dots-hyprland-nixos";
+        illogical-impulse.inputs.nixpkgs.follows = "nixpkgs";
 
         # Stylix
         stylix.url = "github:danth/stylix";
