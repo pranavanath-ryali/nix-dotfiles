@@ -28,5 +28,8 @@
         bottles
 
         # gdlauncher-carbon
+
+        unityhub
+        jetbrains.rider
     ];
 }

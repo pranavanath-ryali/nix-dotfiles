@@ -2,6 +2,7 @@
 {
     options = with lib; with types; {
         theme_hyprland_settings = mkOption { type = attrs; };
+        theme_kitty_settings = mkOption { type = attrs; };
     };
 
     config = {
@@ -24,17 +25,17 @@
                 rounding_power = 2.0;
 
                 active_opacity = 1.0;
-                inactive_opacity = 1.0;
+                inactive_opacity = 0.925;
                 fullscreen_opacity = 1.0;
 
                 dim_inactive = true;
-                dim_strength = 0.12;
+                dim_strength = 0.225;
                 dim_special = 0.5;
 
                 shadow = {
                     enabled = true;
-                    range = 10;
-                    render_power = 4;
+                    range = 12;
+                    render_power = 3;
                     ignore_window = true;
                     color = "rgba(11111bff)";
                 };
@@ -42,9 +43,9 @@
                 blur = {
                     enabled = true;
                     new_optimizations = true;
-                    size = 2;
-                    passes = 2;
-                    vibrancy = 0.169;
+                    size = 3;
+                    passes = 4;
+                    vibrancy = 0.16;
                     ignore_opacity = true;
 
                     special = false;
@@ -74,6 +75,18 @@
             };
 
             bind = [];
+        };
+
+        theme_kitty_settings = {
+            extraConfig = ''
+font_family UbuntuSansMono Nerd Font
+font_size 12
+
+window_padding_width 2 4
+
+background_opacity 0.9
+            '';
+            # themeFile = "Catppuccin-Mocha";
         };
     };
 }

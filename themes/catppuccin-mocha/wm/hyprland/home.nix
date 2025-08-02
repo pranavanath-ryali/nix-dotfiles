@@ -46,6 +46,13 @@
             light = "Papirus-Light";
         };
 
+        opacity = {
+            applications = 1.0;
+            desktop = 1.0;
+            popups = 1.0;
+            terminal = 0.8;
+        };
+
         autoEnable = false;
         targets = {
             gtk.enable = true;
@@ -64,7 +71,7 @@
 
             kitty = {
                 enable = true;
-                variant256Colors = true;
+                variant256Colors = false;
             };
 
             firefox = {
