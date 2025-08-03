@@ -20,8 +20,8 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "illogical-impulse";
-            theme = "default";
+            wm = "hyprland";
+            theme = "catppuccin-mocha";
             browser = "zen";
 
             musicDir = "/mnt/Local Disk/Music - new/";
