@@ -2,9 +2,6 @@
 {
     imports = [
         inputs.stylix.homeModules.stylix
-
-        ../../../../packages/home_packages/quickshell.nix
-        # ../../../../packages/home_packages/waybar.nix
     ];
 
     stylix = {

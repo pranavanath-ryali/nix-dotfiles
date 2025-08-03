@@ -1,9 +1,0 @@
-{ pkgs, inputs, systemSettings, ... }:
-{
-    home.packages = [
-        inputs.quickshell.packages.${systemSettings.system}.default
-
-        pkgs.kdePackages.qtdeclarative
-        pkgs.kdePackages.kirigami
-    ];
-}

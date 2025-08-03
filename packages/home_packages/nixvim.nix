@@ -246,23 +246,23 @@ vim.diagnostic.config {
                 };
             };
 
-            rustaceanvim = {
-                enable = true;
-                settings = {
-                    server = {
-                        default_settings = {
-                            rust-analyzer = {
-                                # inlayHints = {
-                                #     lifetimeElisionHints = {
-                                #         enable = "always";
-                                #     };
-                                # };
-                            };
-                        };
-                        standalone = false;
-                    };
-                };
-            };
+            # rustaceanvim = {
+            #     enable = true;
+            #     settings = {
+            #         server = {
+            #             default_settings = {
+            #                 rust-analyzer = {
+            #                     # inlayHints = {
+            #                     #     lifetimeElisionHints = {
+            #                     #         enable = "always";
+            #                     #     };
+            #                     # };
+            #                 };
+            #             };
+            #             standalone = false;
+            #         };
+            #     };
+            # };
 
             typescript-tools = {
                 enable = true;
