@@ -165,6 +165,7 @@ in
 {
     imports = [
         ../../packages/terminal/kitty.nix
+        ../../packages/home_packages/fish.nix
     ];
 
     home.packages = with pkgs; [
