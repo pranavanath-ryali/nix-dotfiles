@@ -6,6 +6,7 @@
 		terminal = "${pkgs.kitty}/bin/kitty";
 		modes = [
 			"drun"
+			"filebrowser"
 		];
 	};
 }
