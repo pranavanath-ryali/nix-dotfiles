@@ -77,10 +77,6 @@
         # Hyprland
         hyprland.url = "github:hyprwm/Hyprland";
 
-        # Illogical Impulse Shell
-        illogical-impulse.url = "github:xBLACKICEx/end-4-dots-hyprland-nixos";
-        illogical-impulse.inputs.nixpkgs.follows = "nixpkgs";
-
         # Stylix
         stylix.url = "github:danth/stylix";
         stylix.inputs.nixpkgs.follows = "nixpkgs";

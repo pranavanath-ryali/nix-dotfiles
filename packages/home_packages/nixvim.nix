@@ -40,14 +40,6 @@
             confirm = true;
         };
 
-        # highlightOverride = {
-        #     SignColumn.bg = "none";
-
-        #     CursorLineNr.bg = "none";
-        #     LineNrAbove.bg = "none";
-        #     LineNrBelow.bg = "none";
-        # };
-
         globals = {
             mapleader = " ";
             maplocalleader = " ";
@@ -99,15 +91,10 @@ vim.diagnostic.config {
                             ];
                         };
                     };
-                                        pyright.enable = true;
-
-                    # html.enable = true;
-                    # emmet_language_server.enable = true; 
-                    # cssls.enable = true;
-                    # angularls.enable = true;
-                    # cssmodules_ls.enable = true;
+                    pyright.enable = true;
                 };
             };
+
             cmake-tools = {
                 enable = true;
                 settings = {
@@ -246,23 +233,23 @@ vim.diagnostic.config {
                 };
             };
 
-            # rustaceanvim = {
-            #     enable = true;
-            #     settings = {
-            #         server = {
-            #             default_settings = {
-            #                 rust-analyzer = {
-            #                     # inlayHints = {
-            #                     #     lifetimeElisionHints = {
-            #                     #         enable = "always";
-            #                     #     };
-            #                     # };
-            #                 };
-            #             };
-            #             standalone = false;
-            #         };
-            #     };
-            # };
+            rustaceanvim = {
+                enable = true;
+                settings = {
+                    server = {
+                        default_settings = {
+                            rust-analyzer = {
+                                # inlayHints = {
+                                #     lifetimeElisionHints = {
+                                #         enable = "always";
+                                #     };
+                                # };
+                            };
+                        };
+                        standalone = false;
+                    };
+                };
+            };
 
             typescript-tools = {
                 enable = true;

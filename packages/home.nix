@@ -20,7 +20,7 @@
         libtool
         pkg-config
 
-        discord
+        # discord
 
         obsidian
         lorien
