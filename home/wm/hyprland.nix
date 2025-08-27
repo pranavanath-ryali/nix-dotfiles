@@ -166,6 +166,7 @@ in
     imports = [
         ../../packages/terminal/kitty.nix
         ../../packages/home_packages/fish.nix
+        ../../packages/home_packages/zathura.nix
     ];
 
     home.packages = with pkgs; [
