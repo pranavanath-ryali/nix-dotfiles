@@ -3,7 +3,7 @@
     imports = [
         inputs.stylix.homeModules.stylix
 
-        ../../packages/anyrun.nix
+        ../../packages/rofi.nix
     ];
 
     stylix = {
