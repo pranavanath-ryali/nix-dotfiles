@@ -11,6 +11,7 @@ alias dots="cd ~/.dotfiles && nvim ."
 		plugins = [
 			{ name = "grc"; src = pkgs.fishPlugins.grc.src; }
 			{ name = "tide"; src = pkgs.fishPlugins.tide.src; }
+			{ name = "z"; src = pkgs.fishPlugins.z.src; }
 		];
 	};
 }

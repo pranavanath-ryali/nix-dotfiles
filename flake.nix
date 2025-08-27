@@ -81,10 +81,6 @@
         stylix.url = "github:danth/stylix";
         stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-        # Quickshell
-        # quickshell.url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-        # quickshell.inputs.nixpkgs.follows = "nixpkgs";
-
         # NixVim
         nixvim.url = "github:nix-community/nixvim";
         nixvim.inputs.nixpkgs.follows = "nixpkgs";

@@ -1,17 +1,30 @@
+{ ... }:
 {
-	description = "arstarst";
+	programs.anyrun = {
+		enable = true;
+		config = {
+				x = { fraction = 0.5; };
+				y = { fraction = 0.3; };
+				width = { fraction = 0.3; };
+				hideIcons = false;
+				ignoreExclusiveZones = false;
+				layer = "overlay";
+				hidePluginInfo = false;
+				closeOnClick = false;
+				showResultsImmediately = false;
+				maxEntries = null;
 
-	inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+				plugins = [
+					"${pkgs.anyrun}/lib/libapplications.so"
+					"${pkgs.anyrun}/lib/libsymbols.so"
+				];
+			};
 
-		anyrun.url = "github:anyrun-org/anyrun";
-		anyrun.inputs.nixpkgs.follows = "nixpkgs";
-	};
-
-	outputs = inputs@{ self, nixpkgs, anyrun, ...  }:
-	let
-		system = "x86_64-linux";
-		pkgs = nixpkgs.legacyPackages.${system};
-	in {
+# 			extraCss = ''
+# .some_class {
+# 	background: red;
+# }
+# 			'';
+		};
 	};
 }

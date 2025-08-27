@@ -9,24 +9,21 @@
     ];
 
     environment.systemPackages = with pkgs; [
-        vim
+        btop
         ranger
-        wget
-        curl
-        unzip
+        grc
+        ripgrep
+        bat
 
         git
         gh
 
-        jq
-        socat
-        ripgrep
-        fd
+        vim
+        wget
+        curl
+        unzip
+
         gcc
-        sass
         htop
-        bat
-        grc
-        cargo
     ];
 }

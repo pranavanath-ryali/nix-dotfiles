@@ -14,16 +14,9 @@
     ];
 
     home.packages = with pkgs; [
-        gettext
-        autoconf
-        automake
-        libtool
-        pkg-config
-
         # discord
 
         obsidian
-        lorien
         
         vscode
 
@@ -34,6 +27,5 @@
         
         unityhub
         jetbrains-toolbox
-        # jetbrains.rider
     ];
 }

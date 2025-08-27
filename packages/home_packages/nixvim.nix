@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
     imports = [
-        inputs.nixvim.homeManagerModules.nixvim
+        inputs.nixvim.homeModules.nixvim
     ];
 
     programs.nixvim = {
@@ -77,117 +77,115 @@ vim.diagnostic.config {
         lsp.inlayHints.enable = true;
 
         plugins = {
-            lsp = {
-                enable = true;
-                servers = {
-                    nil_ls.enable = true;
-                    qmlls.enable = true;
-                    clangd = {
-                        enable = true;
-                        settings = {
-                            root_markers = [
-                                "compile_commands.json"
-                                "compile_flags.txt"
-                            ];
-                        };
-                    };
-                    pyright.enable = true;
-                };
-            };
+            # lsp = {
+            #     enable = true;
+            #     servers = {
+            #         nil_ls.enable = true;
+            #         # clangd = {
+            #         #     enable = true;
+            #         #     settings = {
+            #         #         root_markers = [
+            #         #             "compile_commands.json"
+            #         #             "compile_flags.txt"
+            #         #         ];
+            #         #     };
+            #         # };
+            #     };
+            # };
 
-            cmake-tools = {
-                enable = true;
-                settings = {
-                    cmake_build_directory = "build/\${variant:buildtype}";
-                    cmake_dap_configuration = {
-                        cwd = "\${workspaceFolder}";
-                        name = "Launch file";
-                        program = {
-                            __raw = ''
-                            function()
-                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                            end
-                            '';
-                        };
-                        request = "launch";
-                        stopOnEntry = false;
-                        type = "codelldb";
-                    };
-                    cmake_executor = {
-                        name = "toggleterm";
-                    };
-                    cmake_notifications = {
-                        refresh_rate_ms = 80;
-                        spinner = [
-                            "▱▱▱▱▱▱▱"
-                            "▰▱▱▱▱▱▱"
-                            "▰▰▱▱▱▱▱"
-                            "▰▰▰▱▱▱▱"
-                            "▰▰▰▰▱▱▱"
-                            "▰▰▰▰▰▱▱"
-                            "▰▰▰▰▰▰▱"
-                            "▰▰▰▰▰▰▰"
-                        ];
-                    };
-                    cmake_regenerate_on_save = false;
-                    cmake_runner = {
-                        name = "toggleterm";
-                    };
-                    cmake_soft_link_compile_commands = false;
-                };
-            };
+            # cmake-tools = {
+            #     enable = true;
+            #     settings = {
+            #         cmake_build_directory = "build/\${variant:buildtype}";
+            #         cmake_dap_configuration = {
+            #             cwd = "\${workspaceFolder}";
+            #             name = "Launch file";
+            #             program = {
+            #                 __raw = ''
+            #                 function()
+            #                 return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            #                 end
+            #                 '';
+            #             };
+            #             request = "launch";
+            #             stopOnEntry = false;
+            #             type = "codelldb";
+            #         };
+            #         cmake_executor = {
+            #             name = "toggleterm";
+            #         };
+            #         cmake_notifications = {
+            #             refresh_rate_ms = 80;
+            #             spinner = [
+            #                 "▱▱▱▱▱▱▱"
+            #                 "▰▱▱▱▱▱▱"
+            #                 "▰▰▱▱▱▱▱"
+            #                 "▰▰▰▱▱▱▱"
+            #                 "▰▰▰▰▱▱▱"
+            #                 "▰▰▰▰▰▱▱"
+            #                 "▰▰▰▰▰▰▱"
+            #                 "▰▰▰▰▰▰▰"
+            #             ];
+            #         };
+            #         cmake_regenerate_on_save = false;
+            #         cmake_runner = {
+            #             name = "toggleterm";
+            #         };
+            #         cmake_soft_link_compile_commands = false;
+            #     };
+            # };
 
-            cmp = {
-                enable = true;
-                settings = {
-                    sources = [
-                        { name = "lazydev"; groupIndex = 0; }
-                        { name = "nvim_lsp"; }
-                        { name = "luasnip"; }
-                        { name = "path"; }
-                        { name = "nvim_lsp_signature_help"; }
-                    ];
-
-                    snippet = {
-                        expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-                    };
-
-                    mapping = {
-                        "<Tab>" = "cmp.mapping.select_next_item()";
-                        "<S-Tab>" = "cmp.mapping.select_prev_item()";
-                        "<C-f>" = "cmp.mapping.scroll_docs(-4)";
-                        "<C-s>" = "cmp.mapping.scroll_docs(4)";
-                        "<C-n>" = "cmp.mapping.confirm { select = true }";
-                        "<C-k>" = "
-                            cmp.mapping(
-                                function()
-                                    local luasnip = require('luasnip')
-                                    if luasnip.expand_or_locally_jumpable() then
-                                        luasnip.expand_or_jump()
-                                    end
-                                end,
-                                {\"i\", \"s\"}
-                            )
-                        ";
-                        "<C-h>" = "
-                            cmp.mapping(
-                                function()
-                                    local luasnip = require('luasnip')
-                                    if luasnip.locally_jumpable(-1) then
-                                        luasnip.jump(-1)
-                                    end
-                                end,
-                                {\"i\", \"s\"}
-                            )
-                        ";
-                    };
-                };
-            };
-            cmp_luasnip.enable = true;
-            cmp-nvim-lsp.enable = true;
-            cmp-path.enable = true;
-            cmp-buffer.enable = true;
-            cmp-npm.enable = true;
+            # cmp = {
+            #     enable = true;
+            #     settings = {
+            #         sources = [
+            #             { name = "lazydev"; groupIndex = 0; }
+            #             { name = "nvim_lsp"; }
+            #             { name = "luasnip"; }
+            #             { name = "path"; }
+            #             { name = "nvim_lsp_signature_help"; }
+            #         ];
+            #
+            #         snippet = {
+            #             expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+            #         };
+            #
+            #         mapping = {
+            #             "<Tab>" = "cmp.mapping.select_next_item()";
+            #             "<S-Tab>" = "cmp.mapping.select_prev_item()";
+            #             "<C-f>" = "cmp.mapping.scroll_docs(-4)";
+            #             "<C-s>" = "cmp.mapping.scroll_docs(4)";
+            #             "<C-n>" = "cmp.mapping.confirm { select = true }";
+            #             "<C-k>" = "
+            #                 cmp.mapping(
+            #                     function()
+            #                         local luasnip = require('luasnip')
+            #                         if luasnip.expand_or_locally_jumpable() then
+            #                             luasnip.expand_or_jump()
+            #                         end
+            #                     end,
+            #                     {\"i\", \"s\"}
+            #                 )
+            #             ";
+            #             "<C-h>" = "
+            #                 cmp.mapping(
+            #                     function()
+            #                         local luasnip = require('luasnip')
+            #                         if luasnip.locally_jumpable(-1) then
+            #                             luasnip.jump(-1)
+            #                         end
+            #                     end,
+            #                     {\"i\", \"s\"}
+            #                 )
+            #             ";
+            #         };
+            #     };
+            # };
+            # cmp_luasnip.enable = true;
+            # cmp-nvim-lsp.enable = true;
+            # cmp-path.enable = true;
+            # cmp-buffer.enable = true;
+            # cmp-npm.enable = true;
 
             treesitter = {
                 enable = true;
@@ -208,52 +206,26 @@ vim.diagnostic.config {
                 };
             };
 
-            luasnip = {
-                enable = true;
-            };
-
-            conform-nvim = {
-                enable = true;
-                settings = {
-                    formatters_by_ft = {
-                        javascript = {
-                            __unkeyed-1 = "prettierd";    
-                            __unkeyed-2 = "prettier";
-                            stop_after_first = true;
-                        };
-                        typescript = {
-                            __unkeyed-1 = "prettierd";    
-                            __unkeyed-2 = "prettier";
-                            stop_after_first = true;
-                        };
-
-                        "*" = [ "codespell" ];
-                        "_" = [ "trim_whitespace" ];
-                    };
-                };
-            };
-
-            rustaceanvim = {
-                enable = true;
-                settings = {
-                    server = {
-                        default_settings = {
-                            rust-analyzer = {
-                                # inlayHints = {
-                                #     lifetimeElisionHints = {
-                                #         enable = "always";
-                                #     };
-                                # };
-                            };
-                        };
-                        standalone = false;
-                    };
-                };
-            };
-
-            typescript-tools = {
-                enable = true;
-            };
+            # conform-nvim = {
+            #     enable = true;
+            #     settings = {
+            #         formatters_by_ft = {
+            #             # javascript = {
+            #             #     __unkeyed-1 = "prettierd";
+            #             #     __unkeyed-2 = "prettier";
+            #             #     stop_after_first = true;
+            #             # };
+            #             # typescript = {
+            #             #     __unkeyed-1 = "prettierd";
+            #             #     __unkeyed-2 = "prettier";
+            #             #     stop_after_first = true;
+            #             # };
+            #
+            #             "*" = [ "codespell" ];
+            #             "_" = [ "trim_whitespace" ];
+            #         };
+            #     };
+            # };
 
             indent-blankline = {
                 enable = true;
