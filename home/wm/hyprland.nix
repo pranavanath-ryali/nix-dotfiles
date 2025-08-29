@@ -75,6 +75,9 @@ let
             "$mainMod, RETURN, exec, kitty"
             "$mainMod, E, exec, nautilus"
 
+            "$mainMod, R, exec, rofi -show drun"
+            "$mainMod SHIFT, E, exec, rofi -show filebrowser"
+
             # Window Focus Bindings
             "ALT, TAB, cyclenext,"
             "ALT SHIFT, TAB, cyclenext, prev"

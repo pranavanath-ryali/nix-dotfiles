@@ -4,6 +4,7 @@
         (./. + "../../packages/browser" + ("/" + userSettings.browser) + ".nix")
         
 
+        ./home_packages/emacs.nix
         ./home_packages/nixvim.nix
         ./home_packages/neovide.nix
         ./home_packages/mpd.nix

@@ -12,12 +12,16 @@
 
     home.username = userSettings.username;
     home.homeDirectory = "/home/${userSettings.username}";
-
-    home.stateVersion = "25.05";
+    
+    xdg.mimeApps = {
+        enable = true;
+    };
 
     programs.git = {
         enable = true;
         userName = userSettings.gitUserName;
         userEmail = userSettings.gitUserEmail;
     };
+
+    home.stateVersion = "25.05";
 }
