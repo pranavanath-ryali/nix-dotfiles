@@ -15,25 +15,25 @@
 
         fonts = {
             serif = {
-                package = pkgs.ubuntu-sans;
-                name = "UbuntuSans";
+                package = pkgs.maple-mono.NF;
+                name = "Maple Mono NF";
             };
             sansSerif = {
-                package = pkgs.ubuntu-sans;
-                name = "UbuntuSans";
+                package = pkgs.maple-mono.NF;
+                name = "Maple Mono NF";
             };
             monospace = {
+                package = pkgs.maple-mono.NF;
+                name = "Maple Mono NF";
+            };
+            emoji = {
                 package = pkgs.nerd-fonts.ubuntu-sans;
                 name = "UbuntuSansMono Nerd Font";
             };
-            emoji = {
-                package = pkgs.noto-fonts-emoji;
-                name = "Noto Color Emoji";
-            };
             sizes = {
-                applications = 11;
-                desktop = 11;
-                popups = 11;
+                applications = 12;
+                desktop = 12;
+                popups = 12;
                 terminal = 12;
             };
         };
@@ -49,7 +49,7 @@
             applications = 1.0;
             desktop = 1.0;
             popups = 1.0;
-            terminal = 0.85;
+            terminal = 1.0;
         };
 
         autoEnable = false;

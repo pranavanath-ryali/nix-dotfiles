@@ -19,14 +19,15 @@
 
         obsidian
         
+        libresprite
+        aseprite
+        
+        godot
         vscode
 
         easyeffects
         clementine
 
         bottles
-        
-        unityhub
-        jetbrains-toolbox
     ];
 }

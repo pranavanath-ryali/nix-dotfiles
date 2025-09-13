@@ -13,20 +13,20 @@
 
         fonts = {
             serif = {
-                package = pkgs.ubuntu-sans;
-                name = "Ubuntu Regular";
+                package = pkgs.maple-mono.NF;
+                name = "Maple Mono NF";
             };
             sansSerif = {
-                package = pkgs.ubuntu-sans;
-                name = "Ubuntu Regular";
+                package = pkgs.maple-mono.NF;
+                name = "Maple Mono NF";
             };
             monospace = {
-                package = pkgs.nerd-fonts.ubuntu-sans;
-                name = "UbuntuMono Nerd Font";
+                package = pkgs.maple-mono.NF;
+                name = "Maple Mono NF";
             };
             emoji = {
-                package = pkgs.noto-fonts-emoji;
-                name = "Noto Color Emoji";
+                package = pkgs.nerd-fonts.ubuntu-sans;
+                name = "UbuntuSansMono Nerd Font";
             };
         };
 
