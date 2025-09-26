@@ -16,24 +16,24 @@
         fonts = {
             serif = {
                 package = pkgs.maple-mono.NF;
-                name = "Maple Mono NF";
+                name = "MapleMono NF";
             };
             sansSerif = {
                 package = pkgs.maple-mono.NF;
-                name = "Maple Mono NF";
+                name = "MapleMono NF";
             };
             monospace = {
                 package = pkgs.maple-mono.NF;
-                name = "Maple Mono NF";
+                name = "MapleMono NF";
             };
             emoji = {
                 package = pkgs.nerd-fonts.ubuntu-sans;
                 name = "UbuntuSansMono Nerd Font";
             };
             sizes = {
-                applications = 12;
-                desktop = 12;
-                popups = 12;
+                applications = 11;
+                desktop = 11;
+                popups = 11;
                 terminal = 12;
             };
         };

@@ -15,6 +15,9 @@
 
     services.displayManager.gdm.enable = true;
 
+    # Prelaod
+    services.preload.enable = true;
+
     # Mountable Drives
     services.devmon.enable = true;
     services.gvfs.enable = true; 

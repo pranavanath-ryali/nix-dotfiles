@@ -79,12 +79,11 @@
 
         theme_kitty_settings = {
             extraConfig = ''
-font_family UbuntuSansMono Nerd Font
 font_size 12
 
-window_padding_width 2 4
+window_padding_width 2 2
 
-background_opacity 0.9
+background_opacity 1.0
             '';
             # themeFile = "Catppuccin-Mocha";
         };

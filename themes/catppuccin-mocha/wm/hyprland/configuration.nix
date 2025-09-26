@@ -14,15 +14,15 @@
         fonts = {
             serif = {
                 package = pkgs.maple-mono.NF;
-                name = "Maple Mono NF";
+                name = "MapleMono NF";
             };
             sansSerif = {
                 package = pkgs.maple-mono.NF;
-                name = "Maple Mono NF";
+                name = "MapleMono NF";
             };
             monospace = {
                 package = pkgs.maple-mono.NF;
-                name = "Maple Mono NF";
+                name = "MapleMono NF";
             };
             emoji = {
                 package = pkgs.nerd-fonts.ubuntu-sans;
