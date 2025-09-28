@@ -13,6 +13,9 @@
             kbVariant = "colemak_dh";
 
             useSecureboot = false;
+
+            enablePlymouth = true;
+            plymouthTheme = "hexagon_dots";
         };
 
         userSettings = {

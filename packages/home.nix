@@ -15,7 +15,7 @@
     ];
 
     home.packages = with pkgs; [
-        # discord
+        discord
 
         obsidian
         
@@ -27,6 +27,7 @@
 
         easyeffects
         clementine
+        lrcget
 
         bottles
     ];

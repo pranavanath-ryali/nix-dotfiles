@@ -20,6 +20,10 @@
 
     networking.hostName = systemSettings.hostname;
 
+    boot.kernelParams = ["resume_offset=25413632"];
+    boot.resumeDevice = "/dev/disk/by-uuid/ab6e5cb6-fbb9-4030-b199-8438982a5a8e";
+    powerManagement.enable = true;
+
     # Enable networking
     networking.networkmanager.enable = true;
 
