@@ -9,6 +9,7 @@
         ../system/drivers/graphics.nix
 
         ../packages/configuration.nix
+        ../packages/system_packages/plymouth.nix
 
         (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
         (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
