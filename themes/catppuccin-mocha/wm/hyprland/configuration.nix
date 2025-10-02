@@ -35,5 +35,7 @@
         targets.qt.platform = "qtct";
 
         targets.fish.enable = true;
+
+        targets.plymouth.enable = false;
     };
 }

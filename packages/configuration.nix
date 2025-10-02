@@ -6,6 +6,7 @@
         ./system_packages/localsend.nix
         ./system_packages/syncthing.nix
         ./system_packages/flatpak.nix
+        ./system_packages/emacs.nix
     ];
 
     environment.systemPackages = with pkgs; [
