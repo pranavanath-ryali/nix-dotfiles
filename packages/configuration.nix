@@ -6,7 +6,6 @@
         ./system_packages/localsend.nix
         ./system_packages/syncthing.nix
         ./system_packages/flatpak.nix
-        ./system_packages/emacs.nix
     ];
 
     environment.systemPackages = with pkgs; [
@@ -15,6 +14,7 @@
         grc
         ripgrep
         bat
+        pciutils
 
         git
         gh
@@ -23,8 +23,12 @@
         wget
         curl
         unzip
+        cmatrix
 
         gcc
         htop
+
+        jack2
+        qjackctl
     ];
 }
