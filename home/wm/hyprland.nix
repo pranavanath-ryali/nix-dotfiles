@@ -170,6 +170,7 @@ in
         ../../packages/terminal/kitty.nix
         ../../packages/home_packages/fish.nix
         ../../packages/home_packages/zathura.nix
+        ../../packages/home_packages/qimgv.nix
         ../../packages/home_packages/vlc.nix
     ];
 
@@ -184,9 +185,6 @@ in
         hyprshot
 
         hyprpaper
-
-        # zathura
-        qimgv
 
         nautilus
         file-roller
@@ -228,16 +226,16 @@ in
                     on-resume = "brightnessctl -rd rgb:kbd_backlight";
                 }
                 {
-                    timeout = 300;
+                    timeout = 240;
                     on-timeout = "loginctl lock-session";
                 }
                 {
-                    timeout = 600;
+                    timeout = 300;
                     on-timeout = "hyprctl dispatch dpms off";
                     on-resume = "hyprctl dispatch dpms on";
                 }
                 {
-                    timeout = 660;
+                    timeout = 330;
                     on-timeout = "systemctl suspend";
                 }
             ];
