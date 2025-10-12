@@ -91,5 +91,9 @@
         # Zen Browser
         zen-browser.url = "github:0xc000022070/zen-browser-flake";
         zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+        # For Proton
+        erosanix.url = "github:emmanuelrosa/erosanix";
+        erosanix.inputs.nixpkgs.follows = "nixpkgs";
     };
 }

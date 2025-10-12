@@ -75,6 +75,18 @@
             };
 
             bind = [];
+
+            workspace = [
+                "special, gapsOut:12"
+                
+                "1, persistent:true"
+                "2, persistent:true"
+                "3, persistent:true"
+                "4, persistent:true"
+                "5, persistent:true"
+                "6, persistent:true"
+                "7, persistent:true"
+            ];
         };
 
         theme_kitty_settings = {

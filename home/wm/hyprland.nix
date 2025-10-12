@@ -122,8 +122,8 @@ let
             # "$mainMod SHIFT, 9, movetoworkspace, 9"
             # "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-            "$mainMod, S, togglespecialworkspace, magic"
-            "$mainMod SHIFT, S, movetoworkspace, special:magic"
+            "$mainMod, S, togglespecialworkspace, scratchpad"
+            "$mainMod SHIFT, S, movetoworkspace, special:scratchpad"
 
             "$mainMod, mouse_down, workspace, e+1"
             "$mainMod, mouse_up, workspace, e-1"
