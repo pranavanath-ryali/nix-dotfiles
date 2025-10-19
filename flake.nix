@@ -93,7 +93,7 @@
         zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
         # For Proton
-        erosanix.url = "github:emmanuelrosa/erosanix";
-        erosanix.inputs.nixpkgs.follows = "nixpkgs";
+        # erosanix.url = "github:emmanuelrosa/erosanix";
+        # erosanix.inputs.nixpkgs.follows = "nixpkgs";
     };
 }

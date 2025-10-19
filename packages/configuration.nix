@@ -6,7 +6,6 @@
         ./system_packages/localsend.nix
         ./system_packages/syncthing.nix
         ./system_packages/flatpak.nix
-        ./system_packages/protonvpn.nix
     ];
 
     environment.systemPackages = with pkgs; [

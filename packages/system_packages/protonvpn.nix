@@ -1,10 +1,17 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
-	imports = [
-		inputs.erosanix.nixosModules.protonvpn
-	];
+	# imports = [
+	# 	inputs.erosanix.nixosModules.protonvpn
+	# ];
+
+	# networking.firewall.enable = false;
+	networking.firewall.checkReversePath = "loose";
+	networking.useDHCP = false;
 
 	environment.systemPackages = with pkgs; [
-		erosanix.packages.x86_64-linux.protonvpn
+		# inputs.erosanix.packages.x86_64-linux.protonvpn
+
+		protonvpn-gui
+		wireguard-tools
 	];
 }
