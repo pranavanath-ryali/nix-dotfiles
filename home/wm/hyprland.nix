@@ -36,18 +36,30 @@ let
             sensitivity = -0.2;
         };
 
+        general = {
+            layout = "scrolling";
+        } // config.theme_hyprland_settings.general;
+
         gesture = [
-            "3, horizontal, workspace"
-            "3, vertical, special"
+            "3, vertical, workspace"
         ];
 
         dwindle = {
             pseudotile = true;
             preserve_split = true;
         };
+        #
+        # master = {
+        #     new_status = "master";
+        # };
 
-        master = {
-            new_status = "master";
+        plugin = {
+            hyprscrolling = {
+                fullscreen_on_one_column = false;
+                column_width = 0.75;
+                focus_fit_method = 1;
+                follow_focus = true;
+            };
         };
 
         "$mainMod" = "SUPER";
@@ -80,22 +92,14 @@ let
             "ALT, TAB, cyclenext,"
             "ALT SHIFT, TAB, cyclenext, prev"
 
-            "$mainMod, left, movefocus, l"
-            "$mainMod, right, movefocus, r"
-            "$mainMod, up, movefocus, u"
-            "$mainMod, down, movefocus, d"
+            # "$mainMod, left, movefocus, l"
+            # "$mainMod, right, movefocus, r"
 
             # Window Move Bindings
-            "$mainMod SHIFT, left, movewindow, l"
-            "$mainMod SHIFT, right, movewindow, r"
-            "$mainMod SHIFT, up, movewindow, u"
-            "$mainMod SHIFT, down, movewindow, d"
 
             # Window Resize Bindings
-            "$mainMod CTRL, left, resizeactive, -50 0"
-            "$mainMod CTRL, right, resizeactive, 50 0"
-            "$mainMod CTRL, up, resizeactive, 0 50"
-            "$mainMod CTRL, down, resizeactive, 0 -50"
+            # "$mainMod CTRL, left, resizeactive, -50 0"
+            # "$mainMod CTRL, right, resizeactive, 50 0"
 
             # Workspace Bindings
             "$mainMod, 1, workspace, 1"
@@ -109,13 +113,13 @@ let
             # "$mainMod, 9, workspace, 9"
             # "$mainMod, 0, workspace, 10"
 
-            "$mainMod SHIFT, 1, movetoworkspace, 1"
-            "$mainMod SHIFT, 2, movetoworkspace, 2"
-            "$mainMod SHIFT, 3, movetoworkspace, 3"
-            "$mainMod SHIFT, 4, movetoworkspace, 4"
-            "$mainMod SHIFT, W, movetoworkspace, 5"
-            "$mainMod SHIFT, F, movetoworkspace, 6"
-            "$mainMod SHIFT, P, movetoworkspace, 7"
+            # "$mainMod SHIFT, 1, movetoworkspace, 1"
+            # "$mainMod SHIFT, 2, movetoworkspace, 2"
+            # "$mainMod SHIFT, 3, movetoworkspace, 3"
+            # "$mainMod SHIFT, 4, movetoworkspace, 4"
+            # "$mainMod SHIFT, W, movetoworkspace, 5"
+            # "$mainMod SHIFT, F, movetoworkspace, 6"
+            # "$mainMod SHIFT, P, movetoworkspace, 7"
             # "$mainMod SHIFT, 8, movetoworkspace, 8"
             # "$mainMod SHIFT, 9, movetoworkspace, 9"
             # "$mainMod SHIFT, 0, movetoworkspace, 10"
@@ -123,8 +127,39 @@ let
             "$mainMod, S, togglespecialworkspace, scratchpad"
             "$mainMod SHIFT, S, movetoworkspace, special:scratchpad"
 
-            "$mainMod, mouse_down, workspace, e+1"
+            # Hyprscrolling Bindings
+            "$mainMod, right, layoutmsg, move +col"
+            "$mainMod, left, layoutmsg, move -col"
+            "$mainMod, up, movefocus, u"
+            "$mainMod, down, movefocus, d"
+
+            "$mainMod SHIFT, right, layoutmsg, movewindowto r"
+            "$mainMod SHIFT, left, layoutmsg, movewindowto l"
+            "$mainMod SHIFT, up, layoutmsg, movewindowto u"
+            "$mainMod SHIFT, down, layoutmsg, movewindowto d"
+
+            "$mainMod CTRL, LEFT, layoutmsg, colresize -0.25"
+            "$mainMod CTRL, RIGHT, layoutmsg, colresize +0.25"
+            "$mainMod CTRL, up, resizeactive, 0 50"
+            "$mainMod CTRL, down, resizeactive, 0 -50"
+
+            "$mainMod SHIFT CTRL, LEFT, layoutmsg, swapcol l"
+            "$mainMod SHIFT CTRL, RIGHT, layoutmsg, swapcol r"
+
+            "$mainMod SHIFT, 1, layoutmsg, movecoltoworkspace 1"
+            "$mainMod SHIFT, 2, layoutmsg, movecoltoworkspace 2"
+            "$mainMod SHIFT, 3, layoutmsg, movecoltoworkspace 3"
+            "$mainMod SHIFT, 4, layoutmsg, movecoltoworkspace 4"
+            "$mainMod SHIFT, W, layoutmsg, movecoltoworkspace 5"
+            "$mainMod SHIFT, F, layoutmsg, movecoltoworkspace 6"
+            "$mainMod SHIFT, P, layoutmsg, movecoltoworkspace 7"
+
+            "$mainMod, mouse_down, workspace, e-1"
             "$mainMod, mouse_up, workspace, e-1"
+            "$mainMod SHIFT, mouse_down, layoutmsg, move -col"
+            "$mainMod SHIFT, mouse_up, layoutmsg, move +col"
+
+
         ] ++ config.theme_hyprland_settings.bind;
 
         bindel = [
@@ -199,6 +234,12 @@ in
         portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
 
         settings = lib.mkForce (config.theme_hyprland_settings // hyprland_settings);
+        
+        plugins = with inputs.hyprland-plugins.packages.${systemSettings.system}; [
+            hyprscrolling
+        ] ++ [
+            inputs.hypr-dynamic-cursors.packages.${systemSettings.system}.hypr-dynamic-cursors
+        ];
     };
 
     # HYPRIDLE CONFIG

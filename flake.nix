@@ -29,7 +29,7 @@
             theme = "catppuccin-mocha";
             browser = "firefox";
 
-            musicDir = "/mnt/Local Disk/Music - new/";
+            musicDir = "/mnt/local_disk/music";
         };
         
         pkgs = import inputs.nixpkgs {
@@ -81,6 +81,14 @@
 
         # Hyprland
         hyprland.url = "github:hyprwm/Hyprland";
+        hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Hyprland Plugins
+        hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+        hyprland-plugins.inputs.hyprland.follows = "hyprland";
+
+        hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";
+        hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
         # Stylix
         stylix.url = "github:danth/stylix";

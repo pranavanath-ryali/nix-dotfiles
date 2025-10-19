@@ -6,10 +6,11 @@
         ./home_packages/emacs.nix
         ./home_packages/nixvim.nix
 #         ./home_packages/neovide.nix
-        # ./home_packages/mpd.nix
-        # ./home_packages/rmpc.nix
+        ./home_packages/mpd.nix
+        ./home_packages/rmpc.nix
         # ./home_packages/retroarch.nix
-        ./home_packages/gdlauncher.nix
+        # ./home_packages/gdlauncher.nix
+        ./home_packages/prismlauncher.nix
     ];
 
     home.packages = with pkgs; [

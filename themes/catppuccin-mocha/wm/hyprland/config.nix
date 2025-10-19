@@ -9,6 +9,15 @@
         theme_hyprland_settings = {
             exec-once = [];
 
+            plugin = {
+                dynamic-cursors = {
+                    enabled = true;
+                    mode = "stretch";
+
+                    shake.enabled = false;
+                };
+            };
+
             general = {
                 gaps_in = 5;
                 gaps_out = 10;
@@ -17,7 +26,6 @@
 
                 resize_on_border = true;
                 allow_tearing = false;
-                layout = "dwindle";
             };
 
             decoration = {
@@ -70,7 +78,7 @@
                     "border, 1, 1, liner"
                     "borderangle, 1, 30, liner, loop"
                     "fade, 1, 10, default"
-                    "workspaces, 1, 5, wind"
+                    "workspaces, 1, 5, wind, slidevert"
                 ];
             };
 
@@ -96,6 +104,8 @@ font_size 12
 window_padding_width 2 2
 
 background_opacity 1.0
+
+cursor_trail 1
             '';
             # themeFile = "Catppuccin-Mocha";
         };
