@@ -20,13 +20,13 @@
     boot.loader.systemd-boot.consoleMode = "max";
     boot.loader.efi.canTouchEfiVariables = true;
 
-    console.earlySetup = true;
+#     console.earlySetup = true;
 
     networking.hostName = systemSettings.hostname;
 
-    boot.kernelParams = ["resume_offset=25413632"];
-    boot.resumeDevice = "/dev/disk/by-uuid/ab6e5cb6-fbb9-4030-b199-8438982a5a8e";
-    powerManagement.enable = true;
+#     boot.kernelParams = ["resume_offset=25413632"];
+#     boot.resumeDevice = "/dev/disk/by-uuid/ab6e5cb6-fbb9-4030-b199-8438982a5a8e";
+#     powerManagement.enable = true;
 
     # Enable networking
     networking.networkmanager.enable = true;

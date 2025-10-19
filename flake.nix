@@ -25,7 +25,7 @@
 
             wm = "hyprland";
             theme = "catppuccin-mocha";
-            browser = "zen";
+            browser = "firefox";
 
             musicDir = "/mnt/Local Disk/Music - new/";
         };
