@@ -20,13 +20,20 @@
     boot.loader.systemd-boot.consoleMode = "max";
     boot.loader.efi.canTouchEfiVariables = true;
 
-#     console.earlySetup = true;
+    console.earlySetup = true;
 
     networking.hostName = systemSettings.hostname;
 
-#     boot.kernelParams = ["resume_offset=25413632"];
-#     boot.resumeDevice = "/dev/disk/by-uuid/ab6e5cb6-fbb9-4030-b199-8438982a5a8e";
-#     powerManagement.enable = true;
+    # Swap
+    swapDevices = [{
+        device = "/swapfile";
+        size = systemSettings.swapSizeInGb * 1024;
+    }];
+    
+    # Setup Hibernation Hibernation
+    boot.kernelParams = ["resume_offset=60401664"];
+    boot.resumeDevice = "/dev/disk/by-uuid/2036068a-908d-41f7-b078-57fce0bbc55a";
+    powerManagement.enable = true;
 
     # Enable networking
     networking.networkmanager.enable = true;

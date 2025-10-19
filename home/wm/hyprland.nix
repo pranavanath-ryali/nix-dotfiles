@@ -36,12 +36,10 @@ let
             sensitivity = -0.2;
         };
 
-        gestures = {
-            workspace_swipe = true;
-            workspace_swipe_fingers = 3;
-            workspace_swipe_distance = 800;
-            workspace_swipe_min_speed_to_force = 50;
-        };
+        gesture = [
+            "3, horizontal, workspace"
+            "3, vertical, special"
+        ];
 
         dwindle = {
             pseudotile = true;

@@ -14,6 +14,8 @@
 
             useSecureboot = false;
 
+            swapSizeInGb = 22;
+
             enablePlymouth = true;
             plymouthTheme = "hexagon_dots";
         };

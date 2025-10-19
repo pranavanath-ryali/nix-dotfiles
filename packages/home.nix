@@ -17,7 +17,7 @@
         calibre
 
         easyeffects
-        clementine
+        # clementine
         lrcget
 
         bottles

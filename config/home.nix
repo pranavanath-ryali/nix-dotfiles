@@ -19,8 +19,12 @@
 
     programs.git = {
         enable = true;
-        userName = userSettings.gitUserName;
-        userEmail = userSettings.gitUserEmail;
+        # userName = userSettings.gitUserName;
+        # userEmail = userSettings.gitUserEmail;
+        settings.user = {
+            name = userSettings.gitUserName;
+            email = userSettings.gitUserEmail;
+        };
     };
 
     home.stateVersion = "25.05";
