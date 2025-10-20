@@ -205,6 +205,7 @@ in
         ../../packages/home_packages/zathura.nix
         ../../packages/home_packages/qimgv.nix
         ../../packages/home_packages/vlc.nix
+        ../../packages/home_packages/mpv.nix
     ];
 
     home.packages = with pkgs; [
