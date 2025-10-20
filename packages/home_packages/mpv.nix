@@ -29,4 +29,12 @@
 			cache-default = 4000000;
 		};
 	};
+
+	xdg.mimeApps.defaultApplications = {
+		"video/x-msvideo" = [ "mpv.desktop" ];
+		"video/mp4" = [ "mpv.desktop" ];
+		"video/x-matroska" = [ "mpv.desktop" ];
+		"video/mpeg" = [ "mpv.desktop" ];
+		"video/x-wav" = [ "mpv.desktop" ];
+	};
 }
