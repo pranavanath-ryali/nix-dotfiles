@@ -19,6 +19,7 @@
 
         easyeffects
         # clementine
+        strawberry
         lrcget
 
         bottles

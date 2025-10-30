@@ -1,16 +1,15 @@
 { pkgs, ... }:
 {
-	services.emacs = {
-		enable = true;
-		package = pkgs.emacs;
-		extraOptions = [
-			"--daemon"
-			"--load ~/.config/emacs/init.el"
-		];
-	};
+    services.emacs = {
+        enable = true;
+        package = pkgs.emacs;
+        extraOptions = [
+            "--daemon"
+        ];
+    };
 
-	programs.emacs = {
-		enable = true;
-		package = pkgs.emacs;
-	};
-}
+    programs.emacs = {
+        enable = true;
+        package = pkgs.emacs;
+    };
+  }

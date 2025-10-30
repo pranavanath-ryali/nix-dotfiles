@@ -6,18 +6,16 @@ let
         ];
 
         env = [
-            "XCURSOR_SIZE,28"
-            "HYPRCURSOR_SIZE,28"
+            "XCURSOR_SIZE,24"
+            "XCURSOR_THEME,Bibata-Modern-Classic"
         ];
 
-        exec-once = [
-            "hyprctl setcursor Adwaita 28"
-        ] ++ config.theme_hyprland_settings.exec-once;
+        exec-once = config.theme_hyprland_settings.exec-once;
 
         input = {
             kb_layout = systemSettings.kbLayout;
             kb_variant = systemSettings.kbVariant;
-            kb_options = "caps:swapecape";
+            # kb_options = "caps:swapecape";
 
             numlock_by_default = true;
 
@@ -208,6 +206,7 @@ in
     ];
 
     home.packages = with pkgs; [
+        bibata-cursors
         wl-clipboard
         
         pavucontrol
