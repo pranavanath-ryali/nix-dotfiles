@@ -198,11 +198,10 @@ let
 in
 {
     imports = [
-        ../../packages/terminal/kitty.nix
-        ../../packages/home_packages/fish.nix
-        ../../packages/home_packages/zathura.nix
-        ../../packages/home_packages/qimgv.nix
-        ../../packages/home_packages/mpv.nix
+        ../../home/packages/terminal/kitty.nix
+        ../../home/packages/zathura.nix
+        ../../home/packages/qimgv.nix
+        ../../home/packages/mpv.nix
     ];
 
     home.packages = with pkgs; [

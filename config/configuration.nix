@@ -9,7 +9,7 @@
         ../system/drivers/printing.nix
         ../system/drivers/graphics.nix
 
-        ../system/packages/shell/fish.nix
+        ../system/shell/fish.nix
 
         ../system/packages.nix
 
