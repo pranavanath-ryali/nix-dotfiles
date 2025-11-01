@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-	gdlauncher = import ../derivations/gdlauncher.nix {
+	gdlauncher = import ../../derivations/gdlauncher.nix {
 		inherit (pkgs) appimageTools fetchurl;
 	};
 in

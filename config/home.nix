@@ -1,7 +1,7 @@
 { userSettings, ... }:
 {
     imports = [
-        ../packages/home.nix
+        ../packages/packages.nix
 
         (./. + "../../home/wm" + ("/" + userSettings.wm) + ".nix")
         (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
@@ -19,12 +19,6 @@
 
     programs.git = {
         enable = true;
-        # userName = userSettings.gitUserName;
-        # userEmail = userSettings.gitUserEmail;
-        settings.user = {
-            name = userSettings.gitUserName;
-            email = userSettings.gitUserEmail;
-        };
     };
 
     home.stateVersion = "25.05";

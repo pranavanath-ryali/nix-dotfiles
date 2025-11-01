@@ -3,8 +3,6 @@
     imports = [
         ./wayland.nix
         ./gnome-keyring.nix
-
-        ../../packages/system_packages/fish.nix
     ];
 
     programs.hyprland = {

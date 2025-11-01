@@ -86,7 +86,8 @@
         # Hyprland Plugins
         hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
         hyprland-plugins.inputs.hyprland.follows = "hyprland";
-
+        
+        # Plugins
         hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";
         hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
@@ -97,13 +98,5 @@
         # NixVim
         nixvim.url = "github:nix-community/nixvim";
         nixvim.inputs.nixpkgs.follows = "nixpkgs";
-
-        # Zen Browser
-        zen-browser.url = "github:0xc000022070/zen-browser-flake";
-        zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
-        # For Proton
-        # erosanix.url = "github:emmanuelrosa/erosanix";
-        # erosanix.inputs.nixpkgs.follows = "nixpkgs";
     };
 }

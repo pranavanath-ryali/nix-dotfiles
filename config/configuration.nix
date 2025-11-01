@@ -8,8 +8,10 @@
         ../system/drivers/printing.nix
         ../system/drivers/graphics.nix
 
-        ../packages/configuration.nix
-        ../packages/system_packages/plymouth.nix
+        ../../system/packages/fish.nix
+
+        ../system/packages.nix
+        ../system/packages/plymouth.nix
 
         (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
         (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")

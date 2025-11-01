@@ -1,11 +1,10 @@
 { pkgs, ... }:
 {
     imports = [
-        ./system_packages/steam.nix
-        ./system_packages/nh.nix
-        ./system_packages/localsend.nix
-        ./system_packages/syncthing.nix
-#         ./system_packages/flatpak.nix
+        ./packages/steam.nix
+        ./packages/nh.nix
+        ./packages/localsend.nix
+        ./packages/syncthing.nix
     ];
 
     environment.systemPackages = with pkgs; [
