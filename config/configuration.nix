@@ -1,6 +1,7 @@
 { config, pkgs, systemSettings, userSettings, ... }:
 {
     imports = [
+        ../system/packages/plymouth.nix
         ../system/kernel/latest.nix
 
         ../system/drivers/bluetooth.nix
@@ -8,10 +9,9 @@
         ../system/drivers/printing.nix
         ../system/drivers/graphics.nix
 
-        ../../system/packages/fish.nix
+        ../system/packages/shell/fish.nix
 
         ../system/packages.nix
-        ../system/packages/plymouth.nix
 
         (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
         (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
