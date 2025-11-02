@@ -3,7 +3,6 @@
 
     outputs = inputs@{ self, ... }:
     let
-
         systemSettings = {
             system = "x86_64-linux";
             hostname = "nixos";
@@ -68,6 +67,19 @@
                 inherit systemSettings;
                 inherit userSettings;
             };
+        };
+
+        devShells.${systemSettings.system}.default = pkgs.mkShell {
+            name = "nix dev shell";
+
+            buildInputs = with pkgs; [
+                nixd
+                nixfmt-rfc-style
+            ];
+
+            shellHook = ''
+                echo "NixOS Development Environment"
+            '';
         };
     };
 

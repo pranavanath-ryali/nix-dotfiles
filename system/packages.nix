@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
     imports = [
+        ./packages/emacs.nix
         ./packages/steam.nix
         ./packages/nh.nix
         ./packages/localsend.nix

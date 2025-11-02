@@ -3,6 +3,7 @@
     imports = [
         (./. + "/packages/browser" + ("/" + userSettings.browser) + ".nix")
         
+        ./packages/emacs.nix
         ./packages/nixvim.nix
         ./packages/neovide.nix
         ./packages/mpd.nix

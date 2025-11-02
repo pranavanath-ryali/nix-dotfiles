@@ -77,115 +77,106 @@ vim.diagnostic.config {
         lsp.inlayHints.enable = true;
 
         plugins = {
-            # lsp = {
-            #     enable = true;
-            #     servers = {
-            #         nil_ls.enable = true;
-            #         # clangd = {
-            #         #     enable = true;
-            #         #     settings = {
-            #         #         root_markers = [
-            #         #             "compile_commands.json"
-            #         #             "compile_flags.txt"
-            #         #         ];
-            #         #     };
-            #         # };
-            #     };
-            # };
+            lsp = {
+                enable = true;
+                servers = {
+                    nixd.enable = true;
+                };
+            };
 
-            # cmake-tools = {
-            #     enable = true;
-            #     settings = {
-            #         cmake_build_directory = "build/\${variant:buildtype}";
-            #         cmake_dap_configuration = {
-            #             cwd = "\${workspaceFolder}";
-            #             name = "Launch file";
-            #             program = {
-            #                 __raw = ''
-            #                 function()
-            #                 return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-            #                 end
-            #                 '';
-            #             };
-            #             request = "launch";
-            #             stopOnEntry = false;
-            #             type = "codelldb";
-            #         };
-            #         cmake_executor = {
-            #             name = "toggleterm";
-            #         };
-            #         cmake_notifications = {
-            #             refresh_rate_ms = 80;
-            #             spinner = [
-            #                 "▱▱▱▱▱▱▱"
-            #                 "▰▱▱▱▱▱▱"
-            #                 "▰▰▱▱▱▱▱"
-            #                 "▰▰▰▱▱▱▱"
-            #                 "▰▰▰▰▱▱▱"
-            #                 "▰▰▰▰▰▱▱"
-            #                 "▰▰▰▰▰▰▱"
-            #                 "▰▰▰▰▰▰▰"
-            #             ];
-            #         };
-            #         cmake_regenerate_on_save = false;
-            #         cmake_runner = {
-            #             name = "toggleterm";
-            #         };
-            #         cmake_soft_link_compile_commands = false;
-            #     };
-            # };
+            cmake-tools = {
+                enable = true;
+                settings = {
+                    cmake_build_directory = "build/\${variant:buildtype}";
+                    cmake_dap_configuration = {
+                        cwd = "\${workspaceFolder}";
+                        name = "Launch file";
+                        program = {
+                            __raw = ''
+                            function()
+                            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                            end
+                            '';
+                        };
+                        request = "launch";
+                        stopOnEntry = false;
+                        type = "codelldb";
+                    };
+                    cmake_executor = {
+                        name = "toggleterm";
+                    };
+                    cmake_notifications = {
+                        refresh_rate_ms = 80;
+                        spinner = [
+                            "▱▱▱▱▱▱▱"
+                            "▰▱▱▱▱▱▱"
+                            "▰▰▱▱▱▱▱"
+                            "▰▰▰▱▱▱▱"
+                            "▰▰▰▰▱▱▱"
+                            "▰▰▰▰▰▱▱"
+                            "▰▰▰▰▰▰▱"
+                            "▰▰▰▰▰▰▰"
+                        ];
+                    };
+                    cmake_regenerate_on_save = false;
+                    cmake_runner = {
+                        name = "toggleterm";
+                    };
+                    cmake_soft_link_compile_commands = false;
+                };
+            };
 
-            # cmp = {
-            #     enable = true;
-            #     settings = {
-            #         sources = [
-            #             { name = "lazydev"; groupIndex = 0; }
-            #             { name = "nvim_lsp"; }
-            #             { name = "luasnip"; }
-            #             { name = "path"; }
-            #             { name = "nvim_lsp_signature_help"; }
-            #         ];
-            #
-            #         snippet = {
-            #             expand = "function(args) require('luasnip').lsp_expand(args.body) end";
-            #         };
-            #
-            #         mapping = {
-            #             "<Tab>" = "cmp.mapping.select_next_item()";
-            #             "<S-Tab>" = "cmp.mapping.select_prev_item()";
-            #             "<C-f>" = "cmp.mapping.scroll_docs(-4)";
-            #             "<C-s>" = "cmp.mapping.scroll_docs(4)";
-            #             "<C-n>" = "cmp.mapping.confirm { select = true }";
-            #             "<C-k>" = "
-            #                 cmp.mapping(
-            #                     function()
-            #                         local luasnip = require('luasnip')
-            #                         if luasnip.expand_or_locally_jumpable() then
-            #                             luasnip.expand_or_jump()
-            #                         end
-            #                     end,
-            #                     {\"i\", \"s\"}
-            #                 )
-            #             ";
-            #             "<C-h>" = "
-            #                 cmp.mapping(
-            #                     function()
-            #                         local luasnip = require('luasnip')
-            #                         if luasnip.locally_jumpable(-1) then
-            #                             luasnip.jump(-1)
-            #                         end
-            #                     end,
-            #                     {\"i\", \"s\"}
-            #                 )
-            #             ";
-            #         };
-            #     };
-            # };
-            # cmp_luasnip.enable = true;
-            # cmp-nvim-lsp.enable = true;
-            # cmp-path.enable = true;
-            # cmp-buffer.enable = true;
-            # cmp-npm.enable = true;
+            cmp = {
+                enable = true;
+                settings = {
+                    sources = [
+                        { name = "lazydev"; groupIndex = 0; }
+                        { name = "nvim_lsp"; }
+                        { name = "luasnip"; }
+                        { name = "path"; }
+                        { name = "nvim_lsp_signature_help"; }
+                    ];
+
+                    snippet = {
+                        expand = "function(args) require('luasnip').lsp_expand(args.body) end";
+                    };
+
+                    mapping = {
+                        "<Tab>" = "cmp.mapping.select_next_item()";
+                        "<S-Tab>" = "cmp.mapping.select_prev_item()";
+                        "<C-f>" = "cmp.mapping.scroll_docs(-4)";
+                        "<C-s>" = "cmp.mapping.scroll_docs(4)";
+                        "<C-n>" = "cmp.mapping.confirm { select = true }";
+                        "<C-k>" = "
+                            cmp.mapping(
+                                function()
+                                    local luasnip = require('luasnip')
+                                    if luasnip.expand_or_locally_jumpable() then
+                                        luasnip.expand_or_jump()
+                                    end
+                                end,
+                                {\"i\", \"s\"}
+                            )
+                        ";
+                        "<C-h>" = "
+                            cmp.mapping(
+                                function()
+                                    local luasnip = require('luasnip')
+                                    if luasnip.locally_jumpable(-1) then
+                                        luasnip.jump(-1)
+                                    end
+                                end,
+                                {\"i\", \"s\"}
+                            )
+                        ";
+                    };
+                };
+            };
+            cmp_luasnip.enable = true;
+            cmp-nvim-lsp.enable = true;
+            cmp-path.enable = true;
+            cmp-buffer.enable = true;
+            cmp-npm.enable = true;
 
             treesitter = {
                 enable = true;
@@ -200,69 +191,26 @@ vim.diagnostic.config {
 
                         "c"
                         "cpp"
-                        "lua"
+                        "nix"
                         "rust"
                     ];
                 };
             };
 
-            vimwiki = {
+            conform-nvim = {
                 enable = true;
                 settings = {
+                    formatters_by_ft = {
+                        "nix" =  [ "nixfmt" ];
+                        "rust" = [ "rustfmt" ];
+
+                        "*" = [ "codespell" ];
+                        "_" = [ "trim_whitespace" ];
+                    };
                 };
             };
 
-            # conform-nvim = {
-            #     enable = true;
-            #     settings = {
-            #         formatters_by_ft = {
-            #             # javascript = {
-            #             #     __unkeyed-1 = "prettierd";
-            #             #     __unkeyed-2 = "prettier";
-            #             #     stop_after_first = true;
-            #             # };
-            #             # typescript = {
-            #             #     __unkeyed-1 = "prettierd";
-            #             #     __unkeyed-2 = "prettier";
-            #             #     stop_after_first = true;
-            #             # };
-            #
-            #             "*" = [ "codespell" ];
-            #             "_" = [ "trim_whitespace" ];
-            #         };
-            #     };
-            # };
-
-            indent-blankline = {
-                enable = true;
-                settings = {
-                    exclude = {
-                        buftypes = [
-                            "terminal"
-                            "quickfix"
-                        ];
-
-                        filetypes = [
-                              ""
-                              "checkhealth"
-                              "help"
-                              "lspinfo"
-                              "packer"
-                              "TelescopePrompt"
-                              "TelescopeResults"
-                              "yaml"
-                        ];
-                    };
-                    indent = {
-                        char = "╎";
-                    };
-                    scope = {
-                        show_end = false;
-                        show_exact_scope = true;
-                        show_start = false;
-                    };
-                };
-            };
+            rustaceanvim.enable = true;
 
             mini = {
                 enable = true;
@@ -300,28 +248,6 @@ vim.diagnostic.config {
                             synchronize = "=";
                             trim_left   = "<";
                             trim_right  = ">";
-                        };
-                    };
-
-                    pairs = {
-                        modes = {
-                            insert = true;
-                            command = false;
-                            terminal = false;
-                        };
-
-                        mappings = {
-                            "(" = { action = "open"; pair = "()"; neigh_pattern = "[^\\]."; };
-                            "[" = { action = "open"; pair = "[]"; neigh_pattern = "[^\\]."; };
-                            "{" = { action = "open"; pair = "{}"; neigh_pattern = "[^\\]."; };
-
-                            ")" = { action = "close"; pair = "()"; neigh_pattern = "[^\\]."; };
-                            "]" = { action = "close"; pair = "[]"; neigh_pattern = "[^\\]."; };
-                            "}" = { action = "close"; pair = "{}"; neigh_pattern = "[^\\]."; };
-
-                            "\"" = { action = "closeopen"; pair = "\"\""; neigh_pattern = "[^\\]."; register = { cr = false; }; };
-                            "'" = { action = "closeopen"; pair = "''"; neigh_pattern = "[^%a\\]."; register = { cr = false; }; };
-                            "`" = { action = "closeopen"; pair = "``"; neigh_pattern = "[^\\]."; register = { cr = false; }; };
                         };
                     };
 
@@ -412,16 +338,6 @@ vim.diagnostic.config {
                 };
             };
 
-            lualine = {
-                enable = true;
-            };
-
-            barbar = {
-                enable = true;
-                settings = {
-                    animation = false;
-                };
-            };
 
             toggleterm = {
                 enable = true;
@@ -430,15 +346,64 @@ vim.diagnostic.config {
                 };
             };
 
-            indent-o-matic = {
+            indent-blankline = {
                 enable = true;
                 settings = {
-                    max_lines = 2048;
-                    standard_widths = [ 2 4 8 ];
+                    exclude = {
+                        buftypes = [
+                            "terminal"
+                            "quickfix"
+                        ];
+
+                        filetypes = [
+                              ""
+                              "checkhealth"
+                              "help"
+                              "lspinfo"
+                              "packer"
+                              "TelescopePrompt"
+                              "TelescopeResults"
+                              "yaml"
+                        ];
+                    };
+                    indent = {
+                        char = "╎";
+                    };
+                    scope = {
+                        show_end = false;
+                        show_exact_scope = true;
+                        show_start = false;
+                    };
+                };
+            };
+
+            neorg = {
+                enable = true;
+                settings.load = {
+                    "core.concealer" = {
+                        config = {
+                            icon_preset = "varied";
+                        };
+                    };
+                    "core.defaults" = {
+                        __empty = null;
+                    };
+                    "core.dirman" = {
+                        config = {
+                            workspaces = {
+                                home = "~/notes/life";
+                            };
+                        };
+                    };
                 };
             };
 
             # sleuth.enable = true;
+            indent-o-matic.enable = true;
+            nvim-autopairs.enable = true;
+            lualine.enable = true;
+            barbar.enable = true;
+            direnv.enable = true;
             ccc.enable = true;
             web-devicons.enable = true;
         };
