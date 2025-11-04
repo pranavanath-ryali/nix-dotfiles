@@ -199,7 +199,7 @@ in
 {
     imports = [
         ../../home/packages/terminal/kitty.nix
-        ../../home/packages/zathura.nix
+        ../../home/packages/sioyek.nix
         ../../home/packages/qimgv.nix
         ../../home/packages/mpv.nix
     ];

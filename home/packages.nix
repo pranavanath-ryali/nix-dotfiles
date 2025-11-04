@@ -10,6 +10,7 @@
         ./packages/rmpc.nix
         #./packages/gdlauncher.nix
         ./packages/prismlauncher.nix
+        ./packages/retroarch.nix
     ];
 
     home.packages = with pkgs; [

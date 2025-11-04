@@ -2,16 +2,16 @@
 {
     home.packages = with pkgs; [
         (retroarch.withCores (cores: with cores; [
-            gambatte
-            mgba
-            mupen64plus
+            # gambatte
+            # mgba
+            # mupen64plus
             
-            swanstation
-            ppsspp
+            # swanstation
+            # ppsspp
 
-            mame
+            # mame
             snes9x
-            nestopia
+            # nestopia
         ]))
     ];
 }
