@@ -11,7 +11,7 @@
         #./packages/gdlauncher.nix
         ./packages/prismlauncher.nix
         ./packages/retroarch.nix
-        ./packages/virtualization.nix
+        # ./packages/virtualization.nix
     ];
 
     home.packages = with pkgs; [

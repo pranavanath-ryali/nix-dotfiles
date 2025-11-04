@@ -30,4 +30,16 @@
         trusted-substituters = ["https://hyprland.cachix.org"];
         trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
+
+    # Battery Saving
+    services.tlp = {
+        enable = true;
+        settings = {
+            CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+            CPU_SCALING_GOVERNOR_ON_AC="performance";
+
+            CPU_MAX_PERF_ON_AC=95;
+            CPU_MAX_PERF_ON_BAT=60;
+        };
+    };
 }

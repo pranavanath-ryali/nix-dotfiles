@@ -10,5 +10,5 @@
     #     kvm-ok = "egrep -c '(vmx|svm)' /proc/cpuinfo";
     # };
 
-    services.dbus.enable = true;
+    # services.dbus.enable = true;
 }

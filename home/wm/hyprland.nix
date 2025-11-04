@@ -285,4 +285,9 @@ in
         package = pkgs.hyprlock;
         # settings = {};
     };
+
+    home.file."/home/${userSettings.username}/battery_mode.sh" = {
+        source = ../../scripts/battery_mode.sh;
+        executable = true;
+    };
 }
