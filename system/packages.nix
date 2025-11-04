@@ -6,6 +6,7 @@
         ./packages/nh.nix
         ./packages/localsend.nix
         ./packages/syncthing.nix
+        ./packages/virtualization.nix
     ];
 
     environment.systemPackages = with pkgs; [
