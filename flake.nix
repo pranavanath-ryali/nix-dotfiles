@@ -110,5 +110,9 @@
         # NixVim
         nixvim.url = "github:nix-community/nixvim";
         nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Zen Browser
+        zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
+        zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     };
 }
