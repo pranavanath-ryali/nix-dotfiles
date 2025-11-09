@@ -11,10 +11,10 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
         keyword general:gaps_out 0;\
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
-    hyprctl notify 1 5000 "rgb(40a02b)" "Gamemode [ON]"
+    hyprctl notify 1 5000 "rgb(40a02b)" "Battery Mode [ON]"
     exit
 else
-    hyprctl notify 1 5000 "rgb(d20f39)" "Gamemode [OFF]"
+    hyprctl notify 1 5000 "rgb(d20f39)" "Battery Mode [OFF]"
     hyprctl reload
     exit 0
 fi

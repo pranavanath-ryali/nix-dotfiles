@@ -32,14 +32,36 @@
     };
 
     # Battery Saving
-    services.tlp = {
-        enable = true;
-        settings = {
-            CPU_SCALING_GOVERNOR_ON_BAT="powersave";
-            CPU_SCALING_GOVERNOR_ON_AC="performance";
+    # services.tlp = {
+    #     enable = false;
+    #     settings = {
+    #         CPU_SCALING_GOVERNOR_ON_BAT="powersave";
+    #         CPU_SCALING_GOVERNOR_ON_AC="performance";
+    #
+    #         CPU_MAX_PERF_ON_AC=100;
+    #         CPU_MAX_PERF_ON_BAT=60;
+    #     };
+    # };
 
-            CPU_MAX_PERF_ON_AC=95;
-            CPU_MAX_PERF_ON_BAT=60;
+    boot.kernelParams = ["intel_pstate=disable"]; 
+    services = {
+        auto-cpufreq = {
+            enable = true;
+            settings = {
+                battery = {
+                    governor = "powersave";
+                    turbo = "never";
+                };
+                charger = {
+                    governor = "schedutil";
+                    turbo = "auto";
+                };
+            };
+        };
+
+        system76-scheduler = {
+            enable = true;
+            useStockConfig = true;
         };
     };
 }

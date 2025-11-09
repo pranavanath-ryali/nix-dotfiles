@@ -75,6 +75,8 @@ let
 
             "$mainMod, O, exec, obsidian"
 
+            "$mainMod, F1, exec, ~/battery_mode.sh"
+
             # Screenshots
             "$mainMod SHIFT, PRINT, exec, hyprshot -m region -o /home/${userSettings.username}/Pictures/Screenshots/"
             ", PRINT, exec, hyprshot -m active -m output -o /home/${userSettings.username}/Pictures/Screenshots/"

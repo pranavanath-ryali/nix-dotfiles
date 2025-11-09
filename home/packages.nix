@@ -23,5 +23,7 @@
         lrcget
 
         bottles
+
+        python3Minimal
     ];
 }
