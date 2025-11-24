@@ -3,6 +3,7 @@
     imports = [
         (./. + "/packages/browser" + ("/" + userSettings.browser) + ".nix")
         
+        ./packages/webapps.nix
         ./packages/browser/zen.nix
         ./packages/emacs.nix
         ./packages/nixvim.nix
@@ -11,20 +12,22 @@
         ./packages/rmpc.nix
         #./packages/gdlauncher.nix
         ./packages/prismlauncher.nix
-        ./packages/retroarch.nix
+        # ./packages/retroarch.nix
         # ./packages/virtualization.nix
     ];
 
     home.packages = with pkgs; [
+        # whatsie
+        #
         vscode
         calibre
-
+    
         easyeffects
         strawberry
         lrcget
 
         bottles
 
-        python3Minimal
+        # python3Minimal
     ];
 }

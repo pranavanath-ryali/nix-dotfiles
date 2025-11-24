@@ -132,19 +132,27 @@ let
             "$mainMod, left, layoutmsg, move -col"
             "$mainMod, up, movefocus, u"
             "$mainMod, down, movefocus, d"
+            "$mainMod, o, layoutmsg, move +col"
+            "$mainMod, n, layoutmsg, move -col"
 
             "$mainMod SHIFT, right, layoutmsg, movewindowto r"
             "$mainMod SHIFT, left, layoutmsg, movewindowto l"
             "$mainMod SHIFT, up, layoutmsg, movewindowto u"
             "$mainMod SHIFT, down, layoutmsg, movewindowto d"
+            "$mainMod SHIFT, o, layoutmsg, movewindowto r"
+            "$mainMod SHIFT, n, layoutmsg, movewindowto l"
 
             "$mainMod CTRL, LEFT, layoutmsg, colresize -0.25"
             "$mainMod CTRL, RIGHT, layoutmsg, colresize +0.25"
             "$mainMod CTRL, up, resizeactive, 0 50"
             "$mainMod CTRL, down, resizeactive, 0 -50"
+            "$mainMod CTRL, n, layoutmsg, colresize -0.25"
+            "$mainMod CTRL, o, layoutmsg, colresize +0.25"
 
             "$mainMod SHIFT CTRL, LEFT, layoutmsg, swapcol l"
             "$mainMod SHIFT CTRL, RIGHT, layoutmsg, swapcol r"
+            "$mainMod SHIFT CTRL, n, layoutmsg, swapcol l"
+            "$mainMod SHIFT CTRL, o, layoutmsg, swapcol r"
 
             "$mainMod SHIFT, 1, layoutmsg, movecoltoworkspace 1"
             "$mainMod SHIFT, 2, layoutmsg, movecoltoworkspace 2"
@@ -158,8 +166,6 @@ let
             "$mainMod, mouse_up, workspace, e-1"
             "$mainMod SHIFT, mouse_down, layoutmsg, move -col"
             "$mainMod SHIFT, mouse_up, layoutmsg, move +col"
-
-
         ] ++ config.theme_hyprland_settings.bind;
 
         bindel = [
@@ -183,19 +189,19 @@ let
             "$mainMod, mouse:273, resizewindow"
         ];
 
-        windowrulev2 = [
-            "float, class:org.gnome.Nautilus"
-            "float, class:org.pulseaudio.pavucontrol"
-            "float, class:.blueman-manager-wrapped"
-            "float, class:qimgv"
-
-            "size 1200 800, class:org.gnome.Nautilus"
-            "size 200 500, class:org.gnome.Calculator"
-            "size 500 500, class:org.pulseaudio.pavucontrol"
-            "size 500 500, class:.blueman-manager-wrapped"
-
-            "opacity 1.0, fullscreen:1"
-        ];
+        # windowrule = [
+        #     "float, class:org.gnome.Nautilus"
+        #     "float, class:org.pulseaudio.pavucontrol"
+        #     "float, class:.blueman-manager-wrapped"
+        #     "float, class:qimgv"
+        #
+        #     "size 1200 800, class:org.gnome.Nautilus"
+        #     "size 200 500, class:org.gnome.Calculator"
+        #     "size 500 500, class:org.pulseaudio.pavucontrol"
+        #     "size 500 500, class:.blueman-manager-wrapped"
+        #
+        #     "opacity 1.0, fullscreen:1"
+        # ];
     };
 in
 {

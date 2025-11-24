@@ -5,7 +5,7 @@
     let
         systemSettings = {
             system = "x86_64-linux";
-            hostname = "nixos";
+            hostname = "zeus";
             timezone = "Asia/Kolkata";
             locale = "en_IN";
             kbLayout = "us";
