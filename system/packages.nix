@@ -17,6 +17,7 @@
         ripgrep
         bat
         pciutils
+        ispell
 
         git
         gh

@@ -98,6 +98,10 @@
         # Hyprland Plugins
         hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
         hyprland-plugins.inputs.hyprland.follows = "hyprland";
+
+        # Niri
+        niri.url = "github:sodiboo/niri-flake";
+        niri.inputs.hyprland.follows = "nixpkgs";
         
         # Plugins
         hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";

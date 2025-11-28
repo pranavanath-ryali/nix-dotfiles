@@ -17,9 +17,9 @@
     ];
 
     home.packages = with pkgs; [
-        # whatsie
-        #
+        lazygit
         vscode
+
         calibre
     
         easyeffects
@@ -27,7 +27,5 @@
         lrcget
 
         bottles
-
-        # python3Minimal
     ];
 }
