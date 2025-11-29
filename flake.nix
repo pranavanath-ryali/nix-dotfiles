@@ -24,7 +24,7 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "hyprland";
+            wm = "niri";
             theme = "catppuccin-mocha";
             browser = "firefox";
 
