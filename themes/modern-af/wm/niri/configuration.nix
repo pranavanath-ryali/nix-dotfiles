@@ -16,19 +16,19 @@
         fonts = {
             serif = {
                 package = pkgs.inter;
-                name = "";
+                name = "Inter Regular";
             };
             sansSerif = {
                 package = pkgs.inter;
-                name = "";
+                name = "Inter Display";
             };
             monospace = {
-                package = pkgs.maple-mono.NF;
+                package = pkgs.nerd-fonts.sauce-code-pro;
                 name = "";
             };
             emoji = {
                 package = pkgs.noto-fonts-color-emoji;
-                name = "";
+                name = "Noto Color Emoji";
             };
         };
 

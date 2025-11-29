@@ -1,6 +1,7 @@
 scheme: "Generated Scheme"
 author: "The Robots"
-base01: "#000000"
+base00: "#000000"
+base01: "#0f1630"
 base02: "#152354"
 base03: "#304798"
 base04: "#4f6bcc"
