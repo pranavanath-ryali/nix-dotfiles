@@ -56,6 +56,7 @@
         targets = {
             gtk.enable = true;
             gtk.flatpakSupport.enable = true;
+
             qt.enable = true;
             qt.platform = "qtct";
 

@@ -13,11 +13,25 @@
                 border = {
                     enable = true;
                     width = 2;
-                    active = "rgba(255, 255, 255, 255)";
-                    urgent = "rgba(255, 0, 0, 255)";
-                    inactive = "rgba(0, 0, 0, 0)";
+                    active.color = "rgba(255, 255, 255, 255)";
+                    urgent.color = "rgba(255, 0, 0, 255)";
                 };
+
+                focus-ring.enable = false;
             };
+
+            window-rules = [
+                {
+                    matches = [];
+                    clip-to-geometry = true;
+                    geometry-corner-radius = {
+                        bottom-left = 6.0;
+                        bottom-right = 6.0;
+                        top-left = 6.0;
+                        top-right = 6.0;
+                    };
+                }
+            ];
         };
 
         theme_kitty_settings = {
@@ -29,6 +43,8 @@ window_padding_width 2 2
 background_opacity 1.0
 
 cursor_trail 1
+
+hide_window_decorations yes
             '';
             # themeFile = "Catppuccin-Mocha";
         };

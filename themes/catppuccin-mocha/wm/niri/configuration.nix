@@ -30,6 +30,8 @@
             };
         };
 
+        autoEnable = false;
+
         targets.gtk.enable = true;
         targets.qt.enable = true;
         targets.qt.platform = "qtct";

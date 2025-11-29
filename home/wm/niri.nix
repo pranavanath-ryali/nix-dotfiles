@@ -7,9 +7,8 @@
     ];
 
     home.packages = with pkgs; [
-        alacritty
-
-        bibata-cursors
+        
+        
         wl-clipboard
         playerctl
         brightnessctl
