@@ -4,11 +4,15 @@
         inputs.niri.homeModules.niri
 
         ../packages/terminal/kitty.nix
+        ../../home/packages/qimgv.nix
+        ../../home/packages/mpv.nix
     ];
 
     home.packages = with pkgs; [
-        
-        
+        nautilus
+        file-roller
+        loupe
+
         wl-clipboard
         playerctl
         brightnessctl

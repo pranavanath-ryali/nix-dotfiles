@@ -1,38 +1,38 @@
-{ inputs, config, pkgs, userSettings, ... }:
+{ pkgs, systemSettings, inputs, ... }:
 {
     imports = [
         inputs.stylix.nixosModules.stylix
     ];
 
+    environment.systemPackages = [ pkgs.libsForQt5.qtstyleplugin-kvantum ];
+
     stylix = {
         enable = true;
 
         polarity = "dark";
-        base16Scheme = ../../base16.yaml;
-        image = ../../wallpaper.png;
+        base16Scheme = ../../dark.yaml;
+        image = ../../dark.jpeg;
 
         fonts = {
             serif = {
-                package = pkgs.maple-mono.NF;
-                name = "MapleMono NF";
+                package = pkgs.inter;
+                name = "";
             };
             sansSerif = {
-                package = pkgs.maple-mono.NF;
-                name = "MapleMono NF";
+                package = pkgs.inter;
+                name = "";
             };
             monospace = {
                 package = pkgs.maple-mono.NF;
-                name = "MapleMono NF";
+                name = "";
             };
             emoji = {
-                package = pkgs.nerd-fonts.ubuntu-sans;
-                name = "UbuntuSansMono Nerd Font";
+                package = pkgs.noto-fonts-color-emoji;
+                name = "";
             };
         };
 
-        autoEnable = false;
-
-        targets.gtk.enable = true;
+        targets.gtk.enable = false;
         targets.qt.enable = true;
         targets.qt.platform = "qtct";
 

@@ -1,34 +1,36 @@
-{ inputs, pkgs, config, userSettings, ... }:
+{ pkgs, inputs, ... }:
 {
     imports = [
         inputs.stylix.homeModules.stylix
+    ];
 
-        ../../../../home/packages/rofi.nix
+    home.packages = with pkgs; [
+        pkgs.libsForQt5.qtstyleplugin-kvantum
     ];
 
     stylix = {
         enable = true;
 
         polarity = "dark";
-        base16Scheme = ../../base16.yaml;
-        image = ../../wallpaper.png;
+        base16Scheme = ../../dark.yaml;
+        image = ../../dark.jpeg;
 
         fonts = {
             serif = {
-                package = pkgs.maple-mono.NF;
-                name = "MapleMono NF";
+                package = pkgs.inter;
+                name = "";
             };
             sansSerif = {
-                package = pkgs.maple-mono.NF;
-                name = "MapleMono NF";
+                package = pkgs.inter;
+                name = "";
             };
             monospace = {
                 package = pkgs.maple-mono.NF;
-                name = "MapleMono NF";
+                name = "";
             };
             emoji = {
-                package = pkgs.nerd-fonts.ubuntu-sans;
-                name = "UbuntuSansMono Nerd Font";
+                package = pkgs.noto-fonts-color-emoji;
+                name = "";
             };
             sizes = {
                 applications = 11;
@@ -38,34 +40,34 @@
             };
         };
 
-        iconTheme = {
-            enable = true;
-            package = pkgs.catppuccin-papirus-folders;
-            dark = "Papirus-Dark";
-            light = "Papirus-Light";
-        };
+        # iconTheme = {
+        #     enable = true;
+        #     package = pkgs.catppuccin-papirus-folders;
+        #     dark = "Papirus-Dark";
+        #     light = "Papirus-Light";
+        # };
 
-        opacity = {
-            applications = 1.0;
-            desktop = 1.0;
-            popups = 1.0;
-            terminal = 1.0;
-        };
+        # opacity = {
+        #     applications = 1.0;
+        #     desktop = 1.0;
+        #     popups = 1.0;
+        #     terminal = 1.0;
+        # };
 
         autoEnable = false;
         targets = {
-            gtk.enable = true;
-            gtk.flatpakSupport.enable = true;
+            gtk.enable = false;
+            gtk.flatpakSupport.enable = false;
 
             qt.enable = true;
             qt.platform = "qtct";
 
-            hyprland.enable = true;
-            hyprland.hyprpaper.enable = true;
-            hyprpaper.enable = true;
-
-            hyprlock.enable = true;
-            hyprlock.useWallpaper = config.stylix.image != null;
+            # hyprland.enable = true;
+            # hyprland.hyprpaper.enable = true;
+            # hyprpaper.enable = true;
+            #
+            # hyprlock.enable = true;
+            # hyprlock.useWallpaper = config.stylix.image != null;
 
             fish.enable = true;
 
@@ -74,15 +76,15 @@
                 variant256Colors = false;
             };
 
-            firefox = {
-                enable = true;
-                colorTheme.enable = true;
-                firefoxGnomeTheme.enable = true;
+            # firefox = {
+            #     enable = true;
+            #     colorTheme.enable = true;
+            #     firefoxGnomeTheme.enable = true;
+            #
+            #     profileNames = [ "my-profile" ];
+            # };
 
-                profileNames = [ "my-profile" ];
-            };
-
-            neovide.enable = true;
+            neovide.enable = false;
             nixvim = {
                 enable = true;
                 plugin = "mini.base16";
