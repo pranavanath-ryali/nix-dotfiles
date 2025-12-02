@@ -10,6 +10,7 @@
 
     home.packages = with pkgs; [
         nautilus
+        papers
         file-roller
         loupe
 
@@ -21,6 +22,8 @@
     programs.niri = {
         enable = true;
         settings = {
+            prefer-no-csd = true;
+
             input = {
                 keyboard = {
                     numlock = true;

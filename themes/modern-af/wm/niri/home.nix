@@ -36,12 +36,12 @@
             };
         };
 
-        # iconTheme = {
-        #     enable = true;
-        #     package = pkgs.catppuccin-papirus-folders;
-        #     dark = "Papirus-Dark";
-        #     light = "Papirus-Light";
-        # };
+        iconTheme = {
+            enable = true;
+            package = (import ../../packages/vinceliuice-mactahoe-icon-theme.nix { inherit pkgs; });
+            dark = "Papirus-Dark";
+            light = "Papirus-Light";
+        };
 
         # opacity = {
         #     applications = 1.0;
