@@ -4,10 +4,6 @@
         inputs.stylix.homeModules.stylix
     ];
 
-    home.packages = with pkgs; [
-        pkgs.libsForQt5.qtstyleplugin-kvantum
-    ];
-
     stylix = {
         enable = true;
 
@@ -17,12 +13,12 @@
 
         fonts = {
             serif = {
-                package = pkgs.inter;
-                name = "Inter Regular";
+                package = pkgs.dm-sans;
+                name = "DeepMind Sans";
             };
             sansSerif = {
-                package = pkgs.inter;
-                name = "Inter Display";
+                package = pkgs.dm-sans;
+                name = "DeepMind Sans";
             };
             monospace = {
                 package = pkgs.nerd-fonts.sauce-code-pro;
@@ -33,9 +29,9 @@
                 name = "Noto Color Emoji";
             };
             sizes = {
-                applications = 11;
-                desktop = 11;
-                popups = 11;
+                applications = 12;
+                desktop = 12;
+                popups = 12;
                 terminal = 12;
             };
         };
@@ -56,8 +52,8 @@
 
         autoEnable = false;
         targets = {
-            gtk.enable = false;
-            gtk.flatpakSupport.enable = false;
+            gtk.enable = true;
+            gtk.flatpakSupport.enable = true;
 
             qt.enable = true;
             qt.platform = "qtct";
@@ -70,19 +66,10 @@
             # hyprlock.useWallpaper = config.stylix.image != null;
 
             fish.enable = true;
-
             kitty = {
                 enable = true;
                 variant256Colors = false;
             };
-
-            # firefox = {
-            #     enable = true;
-            #     colorTheme.enable = true;
-            #     firefoxGnomeTheme.enable = true;
-            #
-            #     profileNames = [ "my-profile" ];
-            # };
 
             neovide.enable = false;
             nixvim = {

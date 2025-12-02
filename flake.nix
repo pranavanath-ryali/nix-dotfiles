@@ -101,7 +101,7 @@
 
         # Niri
         niri.url = "github:sodiboo/niri-flake";
-        niri.inputs.hyprland.follows = "nixpkgs";
+        niri.inputs.nixpkgs.follows = "nixpkgs";
         
         # Plugins
         hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";

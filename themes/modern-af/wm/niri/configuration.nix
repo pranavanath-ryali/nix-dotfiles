@@ -4,8 +4,6 @@
         inputs.stylix.nixosModules.stylix
     ];
 
-    environment.systemPackages = [ pkgs.libsForQt5.qtstyleplugin-kvantum ];
-
     stylix = {
         enable = true;
 
@@ -15,12 +13,12 @@
 
         fonts = {
             serif = {
-                package = pkgs.inter;
-                name = "Inter Regular";
+                package = pkgs.dm-sans;
+                name = "DeepMind Sans";
             };
             sansSerif = {
-                package = pkgs.inter;
-                name = "Inter Display";
+                package = pkgs.dm-sans;
+                name = "DM Sans";
             };
             monospace = {
                 package = pkgs.nerd-fonts.sauce-code-pro;
@@ -32,7 +30,7 @@
             };
         };
 
-        targets.gtk.enable = false;
+        targets.gtk.enable = true;
         targets.qt.enable = true;
         targets.qt.platform = "qtct";
 
