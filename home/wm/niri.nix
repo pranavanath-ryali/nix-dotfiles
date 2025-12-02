@@ -31,6 +31,7 @@
 
                 touchpad = {
                     enable = true;
+                    dwt = true;
                     
                     accel-profile = "adaptive";
                     accel-speed = 0.2;

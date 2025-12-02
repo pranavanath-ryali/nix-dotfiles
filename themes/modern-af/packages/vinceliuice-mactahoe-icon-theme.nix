@@ -7,12 +7,13 @@ stdenv.mkDerivation {
         owner = "vinceliuice";
         repo = "MacTahoe-icon-theme";
         rev = "master";
-        sha256 = lib.fakeSha256;
+        sha256 = "sha256-tgZMflZqdaTmFvf3zArpwlD+i3SPHt0PsMjgMc20+PM=";
     };
 
     buildInputs = with pkgs; [
         # coreutils 
-        gtk4
+        gtk3
+        jdupes
         hicolor-icon-theme
     ];
 

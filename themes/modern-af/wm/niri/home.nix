@@ -38,9 +38,17 @@
 
         iconTheme = {
             enable = true;
-            package = (import ../../packages/vinceliuice-mactahoe-icon-theme.nix { inherit pkgs; });
-            dark = "Papirus-Dark";
-            light = "Papirus-Light";
+            # package = (import ../../packages/vinceliuice-mactahoe-icon-theme.nix { inherit pkgs; inherit lib; });
+            package = (
+                import ../../packages/vinceliuice-mactahoe-icon-theme.nix {
+                    inherit pkgs;
+                    stdenv = pkgs.stdenv;
+                    lib = pkgs.lib;
+                    fetchFromGithub = pkgs.fetchFromGitHub;
+                }
+            );
+            dark = "MacTahoe-dark";
+            light = "MacTahoe-light";
         };
 
         # opacity = {
