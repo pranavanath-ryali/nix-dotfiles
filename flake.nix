@@ -25,7 +25,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "dankMaterialShell";
-            theme = "default";
+            theme = "catppuccin-mocha";
             browser = "firefox";
 
             musicDir = "/mnt/local_disk/music";

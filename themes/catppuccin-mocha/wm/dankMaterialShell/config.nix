@@ -39,7 +39,6 @@
 include dank-theme.conf
 include dank-tabs.conf
 
-font_family "MapleMono NF"
 font_size 12
 window_padding_width 2 2
 background_opacity 1.0
