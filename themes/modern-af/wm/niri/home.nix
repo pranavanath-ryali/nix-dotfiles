@@ -4,6 +4,18 @@
         inputs.stylix.homeModules.stylix
     ];
 
+    home.packages = [
+        pkgs.quickshell
+    ];
+
+    gtk = {
+        enable = true;
+        theme = {
+            package = pkgs.whitesur-gtk-theme;
+            name = "WhiteSur-Dark";
+        };
+    };
+
     stylix = {
         enable = true;
 
@@ -60,9 +72,11 @@
 
         autoEnable = false;
         targets = {
-            gtk.enable = true;
-            gtk.flatpakSupport.enable = true;
-
+            # gtk = {
+            #     enable = true;
+            #     flatpakSupport.enable = true;
+            # };
+            #
             qt.enable = true;
             qt.platform = "qtct";
 

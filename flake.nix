@@ -24,7 +24,7 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "niri";
+            wm = "dankMaterialShell";
             theme = "modern-af";
             browser = "firefox";
 
@@ -102,6 +102,14 @@
         # Niri
         niri.url = "github:sodiboo/niri-flake";
         niri.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Dank Material Shell
+        dgop.url = "github:AvengeMedia/dgop";
+        dgop.inputs.nixpkgs.follows = "nixpkgs";
+
+        dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
+        dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
+        dankMaterialShell.inputs.dgop.follows = "dgop";
         
         # Plugins
         hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";

@@ -16,6 +16,7 @@
     ];
 
     home.packages = with pkgs; [
+        planify
         overskride
         lazygit
         vscode

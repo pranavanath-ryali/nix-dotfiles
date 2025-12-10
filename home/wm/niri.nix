@@ -9,11 +9,16 @@
     ];
 
     home.packages = with pkgs; [
+        anyrun
+        planify
+        pwvucontrol
+
         nautilus
         papers
         file-roller
         loupe
 
+        swaylock
         wl-clipboard
         playerctl
         brightnessctl
@@ -52,6 +57,8 @@
             };
 
             binds = with config.lib.niri.actions; {
+                "Mod+Space".action = spawn "anyrun";
+                "Mod+E".action = spawn "nautilus";
                 "Mod+Return".action = spawn "kitty";
 
                 "Mod+Q".action = close-window;
@@ -113,6 +120,10 @@
                 "Mod+TouchpadScrollLeft".cooldown-ms = 200;
                 "Mod+TouchpadScrollUp".cooldown-ms = 200;
                 "Mod+TouchpadScrollDown".cooldown-ms = 200;
+
+                "Print".action.screenshot = { show-pointer = false; };
+                "Mod+Print".action.screenshot-screen = {};
+                "Mod+Shift+Print".action.screenshot-window = {};
             };
         } // config.theme_niri_settings;
     };
