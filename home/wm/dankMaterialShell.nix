@@ -22,6 +22,11 @@
         brightnessctl
     ];
 
+	xdg.mimeApps.defaultApplications = {
+		"image/jpeg" = [ "org.gnome.Loupe.desktop" ];
+		"image/png" = [ "org.gnome.Loupe.desktop" ];
+	};
+
     programs.dankMaterialShell = {
         enable = true;
         niri = {
