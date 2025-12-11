@@ -1,8 +1,8 @@
 { config, pkgs, systemSettings, userSettings, ... }:
 {
     imports = [
-        ../system/packages/plymouth.nix
         ../system/kernel/latest.nix
+        ../system/system/hibernation.nix
 
         ../system/drivers/bluetooth.nix
         ../system/drivers/pipewire.nix
@@ -14,8 +14,8 @@
         ../system/packages.nix
 
         (./. + "../../system/wm" + ("/" + userSettings.wm) + ".nix")
-        (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
-        (./. + "../../themes" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/configuration.nix")
+        (./. + "../../rices" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/config.nix")
+        (./. + "../../rices" + ("/" + userSettings.theme) + "/wm" + ("/" + userSettings.wm) + "/configuration.nix")
     ];
 
     boot.loader.systemd-boot.enable = true;
@@ -26,15 +26,6 @@
 
     networking.hostName = systemSettings.hostname;
 
-    # Swap
-    swapDevices = [{
-        device = "/swapfile";
-        size = systemSettings.swapSizeInGb * 1024;
-    }];
-    
-    # Setup Hibernation Hibernation
-    boot.kernelParams = ["resume_offset=60401664"];
-    boot.resumeDevice = "/dev/disk/by-uuid/2036068a-908d-41f7-b078-57fce0bbc55a";
     powerManagement.enable = true;
 
     # Enable networking

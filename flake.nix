@@ -11,12 +11,10 @@
             kbLayout = "us";
             kbVariant = "colemak_dh";
 
-            useSecureboot = false;
-
+            enableHibernation = true;
             swapSizeInGb = 22;
 
-            enablePlymouth = true;
-            plymouthTheme = "hexagon_dots";
+            useSecureboot = false;
         };
 
         userSettings = {
@@ -25,8 +23,8 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "dankMaterialShell";
-            theme = "catppuccin-mocha";
-            browser = "firefox";
+            theme = "catppuccin";
+            browser = "zen";
 
             musicDir = "/mnt/local_disk/music";
         };

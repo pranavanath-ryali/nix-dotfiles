@@ -1,15 +1,5 @@
 { pkgs, ... }:
 {
-	# home.packages = with pkgs; [
-	# 	(
-	# 		mpv.override {
-	# 			scripts = [
-	# 				mpvScripts.uosc
-	# 			];
-	# 		}
-	# 	)
-	# ];
-	#
 	programs.mpv = {
 		enable = true;
 
@@ -17,6 +7,7 @@
 			pkgs.mpv-unwrapped.wrapper {
 				scripts = with pkgs.mpvScripts; [
 					uosc
+					thumbfast
 				];
 
 				mpv = pkgs.mpv-unwrapped.override {
@@ -24,10 +15,6 @@
 				};
 			}
 		);
-
-		config = {
-			cache-default = 4000000;
-		};
 	};
 
 	xdg.mimeApps.defaultApplications = {

@@ -3,7 +3,8 @@
     programs.kitty = {
         enable = true;
         package = pkgs.kitty;
-        # settings = config.theme_kitty_settings;
+
+        enableGitIntegration = true;
         shellIntegration.enableFishIntegration = true;
-    } // config.theme_kitty_settings;
+    };
 }
