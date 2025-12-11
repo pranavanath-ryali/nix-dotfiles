@@ -1,7 +1,8 @@
-{ inputs, pkgs, lib, config, ... }:
+{ inputs, pkgs, ... }:
 {
     imports = [
         ./niri-common.nix
+        ./dms/config.nix
         inputs.dankMaterialShell.homeModules.dankMaterialShell.default
         inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
         
@@ -26,15 +27,6 @@
         niri = {
             enableKeybinds = false;
             enableSpawn = true;
-        };
-    };
-
-    options = with lib; with types; {
-        extra_niri_keybinds = mkOption { type = attrs; };
-    }
-    config = {
-        extra_niri_keybinds = with config.lib.niri.actions; {
-            "Mod+Space".action = spawn [ "dms" "ipc" "call" "spotlight" "toggle" ];
         };
     };
 }
