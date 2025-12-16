@@ -43,10 +43,11 @@
             "<Tab>":   NextTab,
             "<S-Tab>": PreviousTab,
             "1":       SwitchToTab("Queue"),
-            "2":       SwitchToTab("Albums"),
-            "3":       SwitchToTab("Album Artists"),
-            "4":       SwitchToTab("Playlists"),
-            "5":       SwitchToTab("Search"),
+            "2":       SwitchToTab("Lyrics"),
+            "3":       SwitchToTab("Albums"),
+            "4":       SwitchToTab("Album Artists"),
+            "5":       SwitchToTab("Playlists"),
+            "6":       SwitchToTab("Search"),
             "q":       Quit,
             ">":       NextTrack,
             "p":       TogglePause,
@@ -130,34 +131,20 @@
                 panes: [
                     (
                         size: "100%",
-                        borders: "NONE",
+                        borders: "ALL",
                         pane: Split(
                             direction: Horizontal,
                             borders: "NONE",
                             panes: [
                                 (
-                                    size: "75%",
-                                    borders: "ALL",
-                                    pane: Pane(Queue),
+                                    size: "45%",
+                                    borders: "RIGHT",
+                                    pane: Pane(AlbumArt),
                                 ),
                                 (
-                                    size: "25%",
-                                    borders: "ALL",
-                                    pane: Split(
-                                        direction: Vertical,
-                                        panes: [
-                                            (
-                                                size: "60%",
-                                                borders: "ALL",
-                                                pane: Pane(AlbumArt),
-                                            ),
-                                            (
-                                                size: "40%",
-                                                borders: "NONE",
-                                                pane: Pane(Lyrics),
-                                            ),
-                                        ],
-                                    ),
+                                    size: "55%",
+                                    borders: "NONE",
+                                    pane: Pane(Queue),
                                 ),
                             ],
                         ),
@@ -165,6 +152,25 @@
                 ],
             ),
         ),
+		(
+			name: "Lyrics",
+			pane: Split(
+				direction: Horizontal,
+				borders: "ALL",
+				panes: [
+					(
+						size: "45%",
+						borders: "RIGHT",
+						pane: Pane(AlbumArt),
+					),
+					(
+						size: "55%",
+						borders: "NONE",
+						pane: Pane(Lyrics),
+					)
+				]
+			)
+		),
         (
             name: "Albums",
             pane: Split(

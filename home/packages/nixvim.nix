@@ -210,7 +210,12 @@ vim.diagnostic.config {
                 };
             };
 
-            rustaceanvim.enable = true;
+            rustaceanvim = {
+                enable = true;
+                settings.dap.autoload_configurations = true;
+            };
+            dap.enable = true;
+            dap-ui.enable = true;
 
             mini = {
                 enable = true;
@@ -324,6 +329,23 @@ vim.diagnostic.config {
                     fzf-native.enable = true;
                 };
             };
+            
+            project-nvim = {
+                enable = true;
+                enableTelescope = true;
+                settings = {
+                    detection_methods = [
+                        "lsp"
+                    ];
+
+                    patterns = [
+                        ".git"
+                    ];
+
+                    showHidden = true;
+                    silent_chdir = false;
+                };
+            };
 
             gitsigns = {
                 enable = true;
@@ -338,6 +360,10 @@ vim.diagnostic.config {
                 };
             };
 
+            # flash = {
+            #     enable = true;
+            #     autoLoad = true;
+            # };
 
             toggleterm = {
                 enable = true;
@@ -377,25 +403,9 @@ vim.diagnostic.config {
                 };
             };
 
-            neorg = {
+            alpha = {
                 enable = true;
-                settings.load = {
-                    "core.concealer" = {
-                        config = {
-                            icon_preset = "varied";
-                        };
-                    };
-                    "core.defaults" = {
-                        __empty = null;
-                    };
-                    "core.dirman" = {
-                        config = {
-                            workspaces = {
-                                home = "~/notes/life";
-                            };
-                        };
-                    };
-                };
+                theme = "dashboard";
             };
 
             # sleuth.enable = true;

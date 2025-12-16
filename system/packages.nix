@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
     imports = [
-        ./packages/waydroid.nix
+        ./packages/docker.nix
+        # ./packages/waydroid.nix
         ./packages/emacs.nix
         ./packages/steam.nix
         ./packages/nh.nix
