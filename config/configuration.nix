@@ -20,7 +20,7 @@
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.consoleMode = "max";
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot.loader.efi.canTouchEfiVariables = false;
 
     console.earlySetup = true;
 
@@ -58,6 +58,8 @@
     };
 
     security.rtkit.enable = true;
+
+    networking.firewall.allowedTCPPorts = [ 2283 ];
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
