@@ -23,7 +23,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "caelestia";
-            theme = "catppuccin";
+            theme = "default";
             browser = "zen";
 
             musicDir = "/mnt/local_disk/music";
