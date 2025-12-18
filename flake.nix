@@ -22,7 +22,7 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "dankMaterialShell";
+            wm = "caelestia";
             theme = "catppuccin";
             browser = "zen";
 
@@ -108,6 +108,10 @@
         dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
         dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
         dankMaterialShell.inputs.dgop.follows = "dgop";
+        
+        # Caelestia Shell :P
+        caelestia-shell.url = "github:caelestia-dots/shell";
+        caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
         
         # Plugins
         hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";

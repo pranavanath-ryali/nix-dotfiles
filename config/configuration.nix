@@ -20,7 +20,7 @@
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.systemd-boot.consoleMode = "max";
-    boot.loader.efi.canTouchEfiVariables = false;
+    boot.loader.efi.canTouchEfiVariables = true;
 
     console.earlySetup = true;
 
