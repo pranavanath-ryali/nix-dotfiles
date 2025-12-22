@@ -11,6 +11,7 @@
         ./packages/rmpc.nix
         #./packages/gdlauncher.nix
         ./packages/prismlauncher.nix
+        ./packages/activitywatch.nix
     ];
 
     home.packages = with pkgs; [
