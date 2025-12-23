@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
     imports = [
+        ./packages/virtualization.nix
         ./packages/docker.nix
         # ./packages/waydroid.nix
         ./packages/emacs.nix

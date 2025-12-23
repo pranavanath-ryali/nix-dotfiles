@@ -6,6 +6,8 @@
     config = {
         extra_niri_keybinds = with config.lib.niri.actions; {
             "Mod+Space".action = spawn [ "dms" "ipc" "call" "spotlight" "toggle" ];
+            "Mod+L".action = spawn [ "dms" "ipc" "call" "lock" "lock" ];
+            "Mod+Delete".action = spawn [ "dms" "ipc" "call" "powermenu" "toggle" ];
         };
     };
 }
