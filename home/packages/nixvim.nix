@@ -80,6 +80,7 @@ vim.diagnostic.config {
             lsp = {
                 enable = true;
                 servers = {
+                    qmlls.enable = true;
                     nixd.enable = true;
                 };
             };

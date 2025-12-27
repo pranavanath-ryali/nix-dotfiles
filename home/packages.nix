@@ -15,6 +15,9 @@
     ];
 
     home.packages = with pkgs; [
+        discord
+        betterdiscordctl
+
         planify
         overskride
 

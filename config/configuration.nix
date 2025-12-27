@@ -3,6 +3,7 @@
     imports = [
         ../system/kernel/latest.nix
         ../system/system/hibernation.nix
+        ../system/system/secureBoot.nix
 
         ../system/drivers/bluetooth.nix
         ../system/drivers/pipewire.nix
