@@ -1,27 +1,13 @@
-# file: configuration.nix
-{ pkgs, lib, ... }:
-let
-  sources = import ./lon.nix;
-  lanzaboote = import sources.lanzaboote {
-    inherit pkgs;
-  };
-in
+{ lib, inputs, pkgs, systemSettings, ... }:
+lib.mkIf (systemSettings.useSecureboot)
 {
-  imports = [ lanzaboote.nixosModules.lanzaboote ];
+    environment.systemPackages = [
+        pkgs.sbctl
+    ];
 
-  environment.systemPackages = [
-    # For debugging and troubleshooting Secure Boot.
-    pkgs.sbctl
-  ];
-
-  # Lanzaboote currently replaces the systemd-boot module.
-  # This setting is usually set to true in configuration.nix
-  # generated at installation time. So we force it to false
-  # for now.
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-
-  boot.lanzaboote = {
-    enable = true;
-    pkiBundle = "/var/lib/sbctl";
-  };
+    boot.loader.systemd-boot.enable = lib.mkForce false;
+    boot.lanzaboote = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl";
+    };
 }

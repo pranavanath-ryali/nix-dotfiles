@@ -23,6 +23,7 @@
 
         lazygit
         vscode
+        obsidian
 
         calibre
     
