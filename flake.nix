@@ -102,12 +102,8 @@
         niri.inputs.nixpkgs.follows = "nixpkgs";
 
         # Dank Material Shell
-        dgop.url = "github:AvengeMedia/dgop";
-        dgop.inputs.nixpkgs.follows = "nixpkgs";
-
-        dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell";
+        dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell/stable";
         dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
-        dankMaterialShell.inputs.dgop.follows = "dgop";
         
         # Caelestia Shell :P
         caelestia-shell.url = "github:caelestia-dots/shell";
@@ -122,7 +118,7 @@
         stylix.inputs.nixpkgs.follows = "nixpkgs";
 
         # NixVim
-        nixvim.url = "github:nix-community/nixvim";
+        nixvim.url = "github:nix-community/nixvim/nixos-25.11";
         nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
         # Zen Browser
