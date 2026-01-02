@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
     programs.kitty = {
         font.name = "Mononoki Nerd Font";
@@ -17,5 +17,19 @@
 
     programs.nixvim = {
         colorschemes.catppuccin.enable = true;
+    };
+
+    gtk = {
+        enable = true;
+        iconTheme = {
+            name = "";
+            package = (
+                import ../../packages/mactahoe-icon-theme.nix {
+                    inherit pkgs;
+                    stdenv = pkgs.stdenv;
+                    fetchFromGithub = pkgs.fetchFromGithub;
+                }
+            );
+        };
     };
 }

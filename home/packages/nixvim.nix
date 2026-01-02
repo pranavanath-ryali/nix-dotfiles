@@ -81,6 +81,7 @@ vim.diagnostic.config {
                 enable = true;
                 servers = {
                     qmlls.enable = true;
+                    pyright.enable = true;
                     nixd.enable = true;
                 };
             };

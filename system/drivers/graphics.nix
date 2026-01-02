@@ -12,19 +12,24 @@
     hardware.enableRedistributableFirmware = true;
     boot.kernelParams = [ "i915.enable_guc=3" ];
 
-    services.xserver.videoDrivers = [ "nvidia" ];
-
     hardware.nvidia = {
         modesetting.enable = true;
-        open = false;
-        nvidiaSettings = true;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
 
         prime = {
+            offload.enable = true;
+            offload.enableOffloadCmd = true;
+
             intelBusId = "PCI:0:2:0";
             nvidiaBusId = "PCI:2:0:0";
         };
+        
+        powerManagement.enable = true;
+        powerManagement.finegrained = true;
+
+        open = false;
+        nvidiaSettings = true;
     };
+    services.xserver.videoDrivers = [ "nvidia" ];
 
     environment.variables = {
         WLR_DRM_DEVICES = "/dev/dri/by-path/pci-0000:00:02.0-card";

@@ -36,6 +36,14 @@
                 };
             };
 
+            workspaces."1" = {};
+            workspaces."2" = {};
+            workspaces."3" = {};
+            workspaces."4" = {};
+            workspaces."5" = {};
+            workspaces."6" = {};
+            workspaces."7" = {};
+
             binds = with config.lib.niri.actions; {
                 "Mod+E".action = spawn "nautilus";
                 "Mod+Return".action = spawn "kitty";

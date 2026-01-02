@@ -83,7 +83,7 @@
 
     inputs = {
         # Nixpkgs
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
         # Home Manager (Standalone Installation)
         home-manager.url = "github:nix-community/home-manager/master";

@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
     imports = [
+        ./packages/steam.nix
         ./packages/virtualization.nix
         ./packages/docker.nix
         # ./packages/waydroid.nix
         ./packages/emacs.nix
-        ./packages/steam.nix
         ./packages/nh.nix
         ./packages/localsend.nix
         ./packages/syncthing.nix
