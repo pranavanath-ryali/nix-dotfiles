@@ -22,12 +22,12 @@
     gtk = {
         enable = true;
         iconTheme = {
-            name = "";
+            name = "MacTahoe-Dark";
             package = (
                 import ../../packages/mactahoe-icon-theme.nix {
                     inherit pkgs;
                     stdenv = pkgs.stdenv;
-                    fetchFromGithub = pkgs.fetchFromGithub;
+                    fetchFromGitHub = pkgs.fetchFromGitHub;
                 }
             );
         };

@@ -22,8 +22,8 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "dankMaterialShell";
-            theme = "catppuccin";
+            wm = "hyprland";
+            theme = "default";
             browser = "zen";
 
             musicDir = "/mnt/local_disk/music";

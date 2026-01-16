@@ -1,9 +1,9 @@
-{ pkgs, stdenv, fetchFromGithub }:
+{ pkgs, stdenv, fetchFromGitHub }:
 stdenv.mkDerivation {
     pname = "vinceliuice-mactahoe-icon-theme";
     version = "2025-10-16";
 
-    src = fetchFromGithub {
+    src = fetchFromGitHub {
         owner = "vinceliuice";
         repo = "MacTahoe-icon-theme";
         rev = "master";
