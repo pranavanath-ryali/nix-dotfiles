@@ -27,7 +27,7 @@
 		"image/png" = [ "org.gnome.Loupe.desktop" ];
 	};
 
-    programs.dankMaterialShell = {
+    programs.dank-material-shell = {
         enable = true;
         niri = {
             enableKeybinds = false;

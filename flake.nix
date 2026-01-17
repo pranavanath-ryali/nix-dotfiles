@@ -86,7 +86,7 @@
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
 
         # Home Manager (Standalone Installation)
-        home-manager.url = "github:nix-community/home-manager/master";
+        home-manager.url = "github:nix-community/home-manager/release-25.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
         # Hyprland
@@ -105,10 +105,6 @@
         dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell/stable";
         dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
         
-        # Caelestia Shell :P
-        caelestia-shell.url = "github:caelestia-dots/shell";
-        caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
-        
         # Plugins
         hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";
         hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
@@ -124,5 +120,9 @@
         # Zen Browser
         zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
         zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Vicinae
+        vicinae.url = "github:vicinaehq/vicinae";
+        vicinae.inputs.nixpkgs.follows = "nixpkgs";
     };
 }

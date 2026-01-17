@@ -111,7 +111,8 @@
                 "Print".action.screenshot = { show-pointer = false; };
                 "Mod+Print".action.screenshot-screen = {};
                 "Mod+Shift+Print".action.screenshot-window = {};
-            } // config.extra_niri_keybinds;
+            # } // config.extra_niri_keybinds;
+            };
         };
     };
 }
