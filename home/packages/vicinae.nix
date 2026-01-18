@@ -6,6 +6,7 @@
 
     services.vicinae = {
         enable = true;
+        package = pkgs.vicinae;
         systemd = {
             enable = true;
             autoStart = true;
@@ -19,5 +20,13 @@
                 opacity = 0.98;
             };
         };
+        extensions = with inputs.vicinae-extensions.packages.${pkgs.stdenv.hostPlatform.system}; [
+            wifi-commander
+            bluetooth
+            fuzzy-files
+            awww-switcher
+            nix
+            power-profile
+        ];
     };
 }

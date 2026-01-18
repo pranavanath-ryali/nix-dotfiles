@@ -123,6 +123,12 @@
 
         # Vicinae
         vicinae.url = "github:vicinaehq/vicinae";
-        vicinae.inputs.nixpkgs.follows = "nixpkgs";
+        # vicinae.inputs.nixpkgs.follows = "nixpkgs";
+
+        vicinae-extensions.url = "github:vicinaehq/extensions";
+        vicinae-extensions.inputs.nixpkgs.follows = "nixpkgs";
+
+        # AWWW
+        awww.url = "git+https://codeberg.org/LGFae/awww";
     };
 }
