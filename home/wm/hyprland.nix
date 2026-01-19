@@ -4,6 +4,8 @@
         ../packages/terminal/kitty.nix
         ../packages/vicinae.nix
         ../packages/awww.nix
+
+        ../packages/hypr/hypridle.nix
     ];
 
     home.packages = with pkgs; [
@@ -31,6 +33,10 @@
             env = [
                 # "XCURSOR_SIZE,24"
                 # "XCURSOR_THEME,Bibata-Modern-Classic"
+            ];
+
+            exec-once = [
+                "awww-daemon"
             ];
 
             # exec-once = config.theme_hyprland_settings.exec-once;

@@ -22,5 +22,7 @@
         enable = true;
     };
 
+    home.file."Pictures/wallpapers".source = ../wallpapers;
+
     home.stateVersion = "25.05";
 }
