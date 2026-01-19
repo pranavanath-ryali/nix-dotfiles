@@ -1,5 +1,7 @@
-{ ... }:
+{ userSettings, ... }:
 {
+    home.file.".config/hypr/scripts/songdetail.sh".source = ../../../scripts/songdetail.sh;
+
     programs.hyprlock = {
         enable = true;
         settings = {
@@ -9,7 +11,7 @@
             background = [
                 {
                     monitor = "";
-                    path = "~/Pictures/wallpapers/#blue #sky #crane #dark.png";
+                    path = "/home/${userSettings.username}/Pictures/wallpapers/#blue #sky #crane #dark.png";
                     blur_passes = 3;
                     contrast = 0.8916;
                     brightness = 0.8172;
@@ -114,6 +116,6 @@
                     valign = "center";
                 }
             ];
-            };
+        };
     };
 }

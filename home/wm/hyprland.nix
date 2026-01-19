@@ -6,6 +6,7 @@
         ../packages/awww.nix
 
         ../packages/hypr/hypridle.nix
+        ../packages/hypr/hyprlock.nix
     ];
 
     home.packages = with pkgs; [
