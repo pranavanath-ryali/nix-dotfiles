@@ -13,6 +13,8 @@
 
     home.username = userSettings.username;
     home.homeDirectory = "/home/${userSettings.username}";
+
+    fonts.fontconfig.enable = true;
     
     xdg.mimeApps = {
         enable = true;

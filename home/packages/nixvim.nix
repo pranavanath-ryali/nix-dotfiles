@@ -83,6 +83,7 @@ vim.diagnostic.config {
                     qmlls.enable = true;
                     pyright.enable = true;
                     nixd.enable = true;
+                    clangd.enable = true;
                 };
             };
 

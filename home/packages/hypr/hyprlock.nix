@@ -1,6 +1,10 @@
-{ userSettings, ... }:
+{ userSettings, pkgs, ... }:
 {
     home.file.".config/hypr/scripts/songdetail.sh".source = ../../../scripts/songdetail.sh;
+
+    home.packages = with pkgs; [
+
+    ];
 
     programs.hyprlock = {
         enable = true;
@@ -11,7 +15,7 @@
             background = [
                 {
                     monitor = "";
-                    path = "/home/${userSettings.username}/Pictures/wallpapers/#blue #sky #crane #dark.png";
+                    path = "~/Pictures/lockscreen.png";
                     blur_passes = 3;
                     contrast = 0.8916;
                     brightness = 0.8172;
@@ -109,7 +113,7 @@
                     font_color = "rgb(200, 200, 200)";
                     fade_on_empty = false;
                     font_family = "SF Pro Display Bold";
-                    placeholder_text = "<i><span foreground=\"##ffffff99\">Use Me</span></i>";
+                    placeholder_text = "<i><span foreground=\"##ffffff99\">Password</span></i>";
                     hide_input = false;
                     position = "0, -140";
                     halign = "center";

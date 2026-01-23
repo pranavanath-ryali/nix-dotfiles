@@ -23,7 +23,7 @@
             gitUserEmail = "dev.nitrostation@gmail.com";
 
             wm = "hyprland";
-            theme = "default";
+            theme = "rice0";
             browser = "zen";
 
             musicDir = "/mnt/local_disk/music";
@@ -96,6 +96,9 @@
         # Hyprland Plugins
         hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
         hyprland-plugins.inputs.hyprland.follows = "hyprland";
+
+        hy3.url = "github:outfoxxed/hy3";
+        hy3.inputs.hyprland.follows = "hyprland";
 
         # Niri
         niri.url = "github:sodiboo/niri-flake";

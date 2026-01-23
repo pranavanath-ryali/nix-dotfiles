@@ -32,5 +32,6 @@
         lrcget
 
         bottles
+        realvnc-vnc-viewer
     ];
 }

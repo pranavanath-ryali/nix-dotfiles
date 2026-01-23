@@ -25,6 +25,15 @@
         enable = true;
         package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
         portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
+        #
+        # extraConfig = ''
+        #     plugin = ${pkgs.hyprlandPlugins.hy3}/lib/libhy3.so
+        # '';
+
+        plugins = [
+            # pkgs.hyprlandPlugins.hy3
+            # inputs.hy3.packages.x86_64-linux.hy3
+        ];
 
         settings = {
             monitor = [
@@ -99,8 +108,6 @@
                 "$mainMod, RETURN, exec, kitty"
                 "$mainMod, E, exec, nautilus"
 
-                # TODO: Application launcher "$mainMod, R, exec, rofi -show drun"
-
                 "$mainMod, 1, workspace, 1"
                 "$mainMod, 2, workspace, 2"
                 "$mainMod, 3, workspace, 3"
@@ -138,8 +145,6 @@
 
                 "$mainMod, mouse_down, workspace, e-1"
                 "$mainMod, mouse_up, workspace, e-1"
-                "$mainMod SHIFT, mouse_down, layoutmsg, move -col"
-                "$mainMod SHIFT, mouse_up, layoutmsg, move +col"
             ];
 
             binde = [
@@ -181,9 +186,9 @@
 
                 blur = {
                     enabled = true;
-                    size = 8;
-                    passes = 2;
-                    brightness = 0.8172;
+                    size = 6;
+                    passes = 4;
+                    brightness = 0.725;
                 };
             };
         };
