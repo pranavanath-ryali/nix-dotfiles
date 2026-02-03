@@ -107,14 +107,18 @@
         # Dank Material Shell
         dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell/stable";
         dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
-        
-        # Plugins
-        hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";
-        hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
         # Stylix
         stylix.url = "github:danth/stylix";
         stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Matugen   
+        matugen.url = "github:/InioX/Matugen";
+        matugen.inputs.nixpkgs.follows = "nixpkgs";
+
+        # Plugins
+        hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";
+        hypr-dynamic-cursors.inputs.hyprland.follows = "hyprland";
 
         # NixVim
         nixvim.url = "github:nix-community/nixvim/nixos-25.11";

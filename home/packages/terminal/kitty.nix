@@ -6,5 +6,6 @@
 
         enableGitIntegration = true;
         shellIntegration.enableFishIntegration = true;
-    } // config.theme_kitty_settings;
+    };
+    # } // config.theme_kitty_settings;
 }

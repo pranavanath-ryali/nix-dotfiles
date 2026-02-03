@@ -4,6 +4,7 @@
         ../packages/terminal/kitty.nix
         ../packages/vicinae.nix
         ../packages/awww.nix
+        ../packages/mpv.nix
 
         ../packages/hypr/hypridle.nix
         ../packages/hypr/hyprlock.nix

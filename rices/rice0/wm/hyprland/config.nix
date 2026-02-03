@@ -7,8 +7,8 @@
         theme_kitty_settings = {
             extraConfig = ''
 font_size 12
-window_padding_width 2 2
-background_opacity 1.0
+window_padding_width 6 6
+background_opacity 0.7
 cursor_trail 1
 hide_window_decorations yes
             '';

@@ -24,4 +24,6 @@
 		"video/mpeg" = [ "mpv.desktop" ];
 		"video/x-wav" = [ "mpv.desktop" ];
 	};
+
+	home.packages = [ pkgs.youtube-tui ];
 }
