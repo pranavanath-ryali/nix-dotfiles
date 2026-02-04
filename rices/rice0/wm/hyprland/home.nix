@@ -1,35 +1,38 @@
 { inputs, config, systemSettings, pkgs, ... }:
 {
     imports = [
-        inputs.matugen.nixosModules.default
+        # inputs.matugen.nixosModules.default
     ];
 
     home.packages = with pkgs; [
-        inputs.matugen.packages.${systemSettings.system}.default
+        # inputs.matugen.packages.${systemSettings.system}.default
 
-        # matugen
+        matugen
         nerd-fonts.caskaydia-cove
     ];
 
-    programs.matugen = {
-        enable = true;
-        templates = {
-            kitty = {
-                input_path = ../../../../assets/matugen-templates/kitty-colors.conf;
-                output_path = "~/.config/kitty/colors.conf";
-            };
+    home.file."~/.config/matugen/config".source = ../../matugen/config.toml;
+    home.file."~/.config/matugen/templates".source = ../../matugen/templates;
 
-            # gtk = {
-            #     input_path = ../../../../assets/matugen-templates/gtk-colors.css;
-            #     output_path = "~/.config/gtk-4.0/gtk.css";
-            # };
-
-            # hypr = {
-            #     input_path = "./templates/hypr.conf";
-            #     output_path = "~/.config/hypr/colors.conf";
-            # };
-        };
-    };
+    # programs.matugen = {
+    #     enable = true;
+    #     # templates = {
+    #     #     kitty = {
+    #     #         input_path = ../../../../assets/matugen-templates/kitty-colors.conf;
+    #     #         output_path = "~/.config/kitty/colors.conf";
+    #     #     };
+    #     #
+    #     #     # gtk = {
+    #     #     #     input_path = ../../../../assets/matugen-templates/gtk-colors.css;
+    #     #     #     output_path = "~/.config/gtk-4.0/gtk.css";
+    #     #     # };
+    #     #
+    #     #     # hypr = {
+    #     #     #     input_path = "./templates/hypr.conf";
+    #     #     #     output_path = "~/.config/hypr/colors.conf";
+    #     #     # };
+    #     # };
+    # };
 
     gtk = {
         enable = true;

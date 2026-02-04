@@ -23,6 +23,7 @@
 
         lazygit
         vscode
+        # zed-editor
         obsidian
 
         calibre
