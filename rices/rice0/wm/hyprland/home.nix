@@ -14,6 +14,7 @@
 
     # TODO: Use wallust for terminal
     home.file."/home/${userSettings.username}/.config/wallust/wallust.toml".source = ../../wallust/wallust.toml;
+    home.file."/home/${userSettings.username}/.config/wallust/templates".source = ../../wallust/templates;
 
     # TODO: Use matugen for system ui components
     # home.file."/home/${userSettings.username}/.config/matugen/config.toml".source = ../../matugen/config.toml;
