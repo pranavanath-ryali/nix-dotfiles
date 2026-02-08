@@ -61,6 +61,8 @@
 
     networking.firewall.allowedTCPPorts = [ 2283 ];
 
+    hardware.xpadneo.enable = true;
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 

@@ -1,4 +1,4 @@
-{ inputs, config, systemSettings, pkgs, ... }:
+{ inputs, config, systemSettings, userSettings, pkgs, ... }:
 {
     imports = [
         # inputs.matugen.nixosModules.default
@@ -6,13 +6,18 @@
 
     home.packages = with pkgs; [
         # inputs.matugen.packages.${systemSettings.system}.default
+        # matugen
 
-        matugen
+        wallust
         nerd-fonts.caskaydia-cove
     ];
 
-    home.file."~/.config/matugen/config".source = ../../matugen/config.toml;
-    home.file."~/.config/matugen/templates".source = ../../matugen/templates;
+    # TODO: Use wallust for terminal
+    home.file."/home/${userSettings.username}/.config/wallust/wallust.toml".source = ../../wallust/wallust.toml;
+
+    # TODO: Use matugen for system ui components
+    # home.file."/home/${userSettings.username}/.config/matugen/config.toml".source = ../../matugen/config.toml;
+    # home.file."/home/${userSettings.username}/.config/matugen/templates".source = ../../matugen/templates;
 
     # programs.matugen = {
     #     enable = true;
@@ -55,5 +60,8 @@
             cursor_trail = 1;
             hide_window_decorations = "yes";
         };
+        extraConfig = ''
+include colors.conf
+        '';
     };
 }
