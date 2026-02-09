@@ -62,7 +62,7 @@
             hide_window_decorations = "yes";
         };
         extraConfig = ''
-include colors.conf
+include ~/.wallust/kitty_colors.conf
         '';
     };
 }
