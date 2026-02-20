@@ -23,16 +23,16 @@
 
         lazygit
         vscode
-        # zed-editor
-        obsidian
 
+        libreoffice
         calibre
+        obsidian
     
         easyeffects
         strawberry
         lrcget
 
+
         bottles
-        realvnc-vnc-viewer
     ];
 }

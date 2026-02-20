@@ -22,7 +22,7 @@
             gitUserName = "Nitrostation-Dev";
             gitUserEmail = "dev.nitrostation@gmail.com";
 
-            wm = "hyprland";
+            wm = "niri";
             theme = "rice0";
             browser = "zen";
 

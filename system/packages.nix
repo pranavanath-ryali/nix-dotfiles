@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
     imports = [
+        ./packages/sunshine.nix
         ./packages/steam.nix
         ./packages/virtualization.nix
         ./packages/docker.nix
