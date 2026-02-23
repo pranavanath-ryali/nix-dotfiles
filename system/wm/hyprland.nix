@@ -17,26 +17,4 @@
 
     # Upower
     services.upower.enable = true;
-    
-    boot.kernelParams = ["intel_pstate=disable"]; 
-    services = {
-        auto-cpufreq = {
-            enable = true;
-            settings = {
-                battery = {
-                    governor = "powersave";
-                    turbo = "never";
-                };
-                charger = {
-                    governor = "schedutil";
-                    turbo = "auto";
-                };
-            };
-        };
-
-        system76-scheduler = {
-            enable = true;
-            useStockConfig = true;
-        };
-    };
 }
