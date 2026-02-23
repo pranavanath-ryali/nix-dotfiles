@@ -104,10 +104,6 @@
         niri.url = "github:sodiboo/niri-flake";
         niri.inputs.nixpkgs.follows = "nixpkgs";
 
-        # Dank Material Shell
-        dankMaterialShell.url = "github:AvengeMedia/DankMaterialShell/stable";
-        dankMaterialShell.inputs.nixpkgs.follows = "nixpkgs";
-
         # Stylix
         stylix.url = "github:danth/stylix";
         stylix.inputs.nixpkgs.follows = "nixpkgs";
