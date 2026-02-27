@@ -7,7 +7,7 @@
     programs.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${systemSettings.system}.hyprland;
-        portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
+        # portalPackage = inputs.hyprland.packages.${systemSettings.system}.xdg-desktop-portal-hyprland;
     };
 
     # Mountable Drives
