@@ -10,10 +10,8 @@
       imports = [
         self.nixosModules.direnvModule
         self.nixosModules.steamModule
-        # self.nixosModules.waydroidModule
         self.nixosModules.flatpakModule
         self.nixosModules.nixosContainerModule
-        # self.nixosModules.nhModule
         self.nixosModules.virtualizationModule
         self.nixosModules.dockerModule
       ];

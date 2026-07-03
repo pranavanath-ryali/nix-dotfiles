@@ -20,14 +20,9 @@
     };
 
     services.logind.settings.Login = {
-      lidSwitch = "suspend";
-      powerKey = "hibernate";
-    };
-
-    services.logind = {
-      lidSwitch = "suspend";
-      lidSwitchExternalPower = "ignore";
-      lidSwitchDocked = "ignore";
+      HandleLibSwitch = "suspend";
+      HandleLibSwitchExternalPower = "ignore";
+      HandleLibSwitchDocked = "ignore";
     };
 
     boot.kernelParams = [
@@ -36,8 +31,8 @@
       "pcie_aspm.policy=powersupersave"
     ];
 
-    # systemd.sleep.settings.Sleep = {
-    #   HibernateDelaySec = "30m";
-    # };
+    systemd.sleep.settings.Sleep = {
+      HibernateDelaySec = "30m";
+    };
   };
 }
