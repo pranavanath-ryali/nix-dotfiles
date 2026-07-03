@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules.hyprlandPitchBlackRice =
+  flake.homeModules.hyprlandPitchBlackRiceModule =
     {
       self,
       config,
@@ -13,7 +13,6 @@
         self.homeModules.fishModule
         self.homeModules.vicinaeModule
         self.homeModules.awwwModule
-        # self.homeModules.swwwModule
         self.homeModules.dunstModule
         self.homeModules.waybarModule
         self.homeModules.hyprlockModule
