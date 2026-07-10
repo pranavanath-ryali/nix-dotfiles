@@ -17,7 +17,7 @@
 
       self.nixosModules.poseidonGpuDriversModule
       self.nixosModules.poseidonBatteryOptimizations
-      self.nixosModules.poseidonDisplayModule
+      # self.nixosModules.poseidonDisplayModule
 
       self.nixosModules.bluetoothModule
       self.nixosModules.printingModule

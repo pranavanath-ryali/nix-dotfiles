@@ -17,9 +17,6 @@
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
 
-    # noctalia.url = "github:noctalia-dev/noctalia-shell";
-    # noctalia.inputs.nixpkgs.follows = "nixpkgs-unstable";
-
     # NVF
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
@@ -34,9 +31,6 @@
 
     # Vicinae
     vicinae.url = "github:vicinaehq/vicinae";
-
-    # AWWW
-    # awww.url = "git+https://codeberg.org/LGFae/awww";
   };
 
   outputs =
