@@ -43,6 +43,11 @@
       # Load rices
       ++ lib.optional (globalSettings.rice == "pitch-black") self.nixosModules.pitchBlackRice;
 
+      networking.firewall = {
+        enable = true;
+        allowedTCPPorts = globalSettings.openPorts;
+      };
+
       nixpkgs.config.allowUnfree = true;
 
       boot.loader.systemd-boot.enable = true;

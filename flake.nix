@@ -52,6 +52,8 @@
           wm = "hyprland";
           rice = "pitch-black";
           browser = "zen";
+          virtualization = false;
+          openPorts = [ 4533 5000 ];
         };
       };
 

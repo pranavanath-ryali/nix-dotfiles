@@ -4,6 +4,7 @@
     {
       self,
       pkgs,
+      lib,
       ...
     }:
     {
@@ -12,9 +13,10 @@
         self.nixosModules.steamModule
         self.nixosModules.flatpakModule
         self.nixosModules.nixosContainerModule
-        self.nixosModules.virtualizationModule
         self.nixosModules.dockerModule
-      ];
+        self.nixosModules.distroBoxModule
+      ]
+      ++ lib.optional (globalSettings.virtualization) self.nixosModules.virtualizationModule;
 
       environment.systemPackages = with pkgs; [
         gsettings-desktop-schemas
