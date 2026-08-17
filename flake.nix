@@ -1,7 +1,9 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/9dade630d90036ccd0d104e6cf5b710a89db6261";
+    nixpkgs-2511.url = "github:NixOS/nixpkgs/release-25.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
@@ -52,8 +54,11 @@
           wm = "hyprland";
           rice = "pitch-black";
           browser = "zen";
-          virtualization = false;
-          openPorts = [ 4533 5000 ];
+          virtualization = true;
+          openPorts = [
+            4533
+            5000
+          ];
         };
       };
 

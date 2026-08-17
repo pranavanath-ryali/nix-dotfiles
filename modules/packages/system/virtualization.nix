@@ -1,7 +1,12 @@
 { userSettings, ... }:
 {
   flake.nixosModules.virtualizationModule =
-    { pkgs, inputs, ... }:
+    {
+      pkgs,
+      pkgs-2511,
+      inputs,
+      ...
+    }:
     {
       imports = [
         inputs.i915-sriov.nixosModules.default
@@ -31,7 +36,7 @@
       ];
 
       # Linux kernel
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      # boot.kernelPackages = pkgs.linux;
       boot.kernelParams = [
         "intel_iommu=on"
         "iommu=pt"

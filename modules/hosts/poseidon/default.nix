@@ -11,6 +11,10 @@
     specialArgs = {
       inherit self;
       inherit inputs;
+      pkgs-2511 = import inputs.nixpkgs-2511 {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
     };
     modules = [
       self.nixosModules.poseidonMachineModule
@@ -76,6 +80,14 @@
         "nix-command"
         "flakes"
       ];
+
+      services.openssh = {
+        enable = true;
+        settings = {
+          PasswordAuthentication = true;
+          PermitRootLogin = "no";
+        };
+      };
 
       users.users.${userSettings.username} = {
         isNormalUser = true;

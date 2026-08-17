@@ -15,6 +15,7 @@
         self.nixosModules.nixosContainerModule
         self.nixosModules.dockerModule
         self.nixosModules.distroBoxModule
+        self.nixosModules.sunshineModule
       ]
       ++ lib.optional (globalSettings.virtualization) self.nixosModules.virtualizationModule;
 
@@ -52,6 +53,8 @@
 
         jack2
         qjackctl
+        gparted
+        gnome-disk-utility
 
         adw-gtk3
         papirus-icon-theme

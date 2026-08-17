@@ -364,6 +364,8 @@
               "$mainMod, 5, workspace, 5"
               "$mainMod, F, workspace, 6"
               "$mainMod, P, workspace, 7"
+              "$mainMod, B, workspace, 8"
+              "$mainMod, J, workspace, 9"
 
               "$mainMod CONTROL, A, layoutmsg, colresize -conf"
               "$mainMod CONTROL, S, layoutmsg, colresize +conf"
@@ -385,6 +387,8 @@
               "$mainMod CONTROL SHIFT, 5, movetoworkspace, 5"
               "$mainMod CONTROL SHIFT, F, movetoworkspace, 6"
               "$mainMod CONTROL SHIFT, P, movetoworkspace, 7"
+              "$mainMod CONTROL SHIFT, B, movetoworkspace, 8"
+              "$mainMod CONTROL SHIFT, J, movetoworkspace, 9"
 
               "$mainMod, S, layoutmsg, focus r"
               "$mainMod, A, layoutmsg, focus l"

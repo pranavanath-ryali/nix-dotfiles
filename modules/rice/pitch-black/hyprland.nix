@@ -78,6 +78,8 @@
               before_sleep_cmd = "loginctl lock-session"; # lock screen before the system goes to sleep
               after_sleep_cmd = "hyprctl dispatch dpms on"; # avoids having to press a key twice to wake the display
               ignore_dbus_inhibit = false; # respect Firefox/Steam inhibitors
+              ignore_wayland_inhibit = false;
+              ignore_systemd_inhibit = false;
             };
 
             listener = [
