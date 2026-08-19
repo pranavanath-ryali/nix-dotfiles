@@ -12,6 +12,7 @@
         wayland
         wireplumber
       ];
+
       services.xserver = {
         enable = true;
         xkb = {
