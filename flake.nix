@@ -1,8 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-26.05";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/9dade630d90036ccd0d104e6cf5b710a89db6261";
     nixpkgs-2511.url = "github:NixOS/nixpkgs/release-25.11";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
@@ -18,6 +16,12 @@
 
     # Hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+
+    # MangoWM
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NVF
     nvf.url = "github:NotAShelf/nvf";
@@ -51,8 +55,8 @@
         };
 
         globalSettings = {
-          wm = "hyprland";
-          rice = "pitch-black";
+          wm = "mangowm";
+          rice = "none";
           browser = "zen";
           virtualization = true;
           openPorts = [

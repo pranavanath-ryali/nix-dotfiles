@@ -28,11 +28,6 @@
           inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       };
 
-      # services.displayManager.sddm = {
-      #   enable = true;
-      #   wayland.enable = true;
-      # };
-      # services.displayManager.gdm.enable = true;
       services.gnome.gnome-keyring.enable = true;
 
       # Mountable Drives
@@ -43,420 +38,206 @@
 
   flake.homeModules.hyprlandModule =
     {
-      self,
       inputs,
       pkgs,
-      config,
       lib,
-      # userSettings,
       ...
     }:
-    let
-      inherit (lib) mkOption types;
-    in
     {
-      # Provide attributes to theme hyprland
-      options.dotfiles.hyprland = mkOption {
-        type = types.submodule {
-          options = {
-            exec-once = mkOption {
-              type = types.listOf types.str;
-              default = [ ];
-            };
-            bezier = mkOption {
-              type = types.listOf types.str;
-              default = [ ];
-            };
-            animation = mkOption {
-              type = types.listOf types.str;
-              default = [
-                "workspaces, 1, 5, default, slidevert"
-              ];
-            };
+      home.file."/home/${userSettings.username}/platform_power_profile.sh" = {
+        executable = true;
+        text = ''
+          FILE="/sys/firmware/acpi/platform_profile"
 
-            general = mkOption {
-              default = { };
-              type = types.submodule {
-                options = {
-                  border_size = mkOption {
-                    type = types.int;
-                    default = 1;
-                  };
-                  gaps_in = mkOption {
-                    type = types.int;
-                    default = 1;
-                  };
-                  gaps_out = mkOption {
-                    type = types.int;
-                    default = 1;
-                  };
-                };
-              };
-            };
+          inotifywait -m -e modify "$FILE" --format '%w%f' | while read FILE_CHANGED
+          do
+              PROFILE=$(cat "$FILE_CHANGED")
 
-            color = mkOption {
-              default = { };
-              type = types.submodule {
-                options = {
-                  inactive_border = mkOption {
-                    type = types.str;
-                    default = "0xff858585";
-                  };
-                  active_border = mkOption {
-                    type = types.str;
-                    default = "0xffffffff";
-                  };
-                  shadow_active = mkOption {
-                    type = types.str;
-                    default = "0xee1a1a1a";
-                  };
-                  shadow_inactive = mkOption {
-                    type = types.str;
-                    default = "0xee1a1a1a";
-                  };
-                };
-              };
-            };
+              case "$PROFILE" in
+                  low-power)
+                      MSG="Power Saver Mode"
+                      ;;
+                  balanced)
+                      MSG="Balanced Mode"
+                      ;;
+                  performance)
+                      MSG="Performance Mode"
+                      ;;
+                  *)
+                      MSG="Unknown mode: $PROFILE"
+                      ;;
+              esac
 
-            decoration = mkOption {
-              default = { };
-              type = types.submodule {
-                options = {
-                  rounding = mkOption {
-                    type = types.int;
-                    default = 8;
-                  };
-                  rounding_power = mkOption {
-                    type = types.float;
-                    default = 2.0;
-                  };
+              notify-send "Lenovo Fn+Q" "$MSG"
+          done
+        '';
+      };
 
-                  active_opacity = mkOption {
-                    type = types.float;
-                    default = 1.0;
-                  };
-                  inactive_opacity = mkOption {
-                    type = types.float;
-                    default = 1.0;
-                  };
-                  fullscreen_opacity = mkOption {
-                    type = types.float;
-                    default = 1.0;
-                  };
+      home.packages = with pkgs; [
+        gammastep
+        brightnessctl
+        wireplumber
 
-                  dim_inactive = mkOption {
-                    type = types.bool;
-                    default = false;
-                  };
-                  dim_strength = mkOption {
-                    type = types.float;
-                    default = 0.0;
-                  };
+        hyprshot
+      ];
 
-                  blur = mkOption {
-                    default = { };
-                    type = types.submodule {
-                      options = {
-                        enabled = mkOption {
-                          type = types.bool;
-                          default = true;
-                        };
-                        size = mkOption {
-                          type = types.int;
-                          default = 8;
-                        };
-                        passes = mkOption {
-                          type = types.int;
-                          default = 1;
-                        };
-                        noise = mkOption {
-                          type = types.float;
-                          default = 0.0117;
-                        };
-                        contrast = mkOption {
-                          type = types.float;
-                          default = 0.8916;
-                        };
-                        vibrancy = mkOption {
-                          type = types.float;
-                          default = 0.1696;
-                        };
-                        vibrancy_darkness = mkOption {
-                          type = types.float;
-                          default = 0.0;
-                        };
-                      };
-                    };
-                  };
+      wayland.windowManager.hyprland = {
+        enable = true;
+        package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        portalPackage =
+          inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        configType = "lua";
 
-                  shadow = mkOption {
-                    default = { };
-                    type = types.submodule {
-                      options = {
-                        enabled = mkOption {
-                          type = types.bool;
-                          default = true;
-                        };
-                        range = mkOption {
-                          type = types.int;
-                          default = 4;
-                        };
-                        render_power = mkOption {
-                          type = types.int;
-                          default = 3;
-                        };
-                        sharp = mkOption {
-                          type = types.bool;
-                          default = false;
-                        };
-                        offset = mkOption {
-                          type = types.str;
-                          default = "0 0";
-                        };
-                        scale = mkOption {
-                          type = types.float;
-                          default = 1.0;
-                        };
-                      };
-                    };
-                  };
-                };
-              };
-            };
+        extraConfig = ''
+          -- monitor
+          hl.monitor({
+            output = "eDP-1",
+            mode = "1920x1080@60",
+            position = "0x0",
+            scale = 1,
+          })
 
-            bind = mkOption {
-              default = [ ];
-              type = types.listOf types.str;
-            };
-            bindel = mkOption {
-              default = [ ];
-              type = types.listOf types.str;
+          hl.bind("SUPER + Q", function() hl.dsp.window.close() end)
+          hl.bind("SUPER + M", function() hl.dsp.layout("colresize 1.0") end)
+          hl.bind("SUPER + V", function() hl.dsp.window.float() end)
+          hl.bind("SUPER + F11", function() hl.dsp.window.fullscreen() end)
+          hl.bind("SUPER + SHIFT + F11", function() hl.dsp.fullscreen_state(0, 2) end)
+          hl.bind("SUPER + F1", function() hl.dsp.exec_cmd("bash /home/${userSettings.username}/hyprland_battery.sh") end)
+          hl.bind("SUPER + SHIFT + PRINT", function() hl.dsp.exec_cmd("hyprshot -m region -o /home/${userSettings.username}/Pictures/Screenshots/") end)
+          hl.bind("PRINT", function() hl.dsp.exec_cmd("hyprshot -m active -m output -o /home/${userSettings.username}/Pictures/Screenshots/") end)
+
+          -- Workspace based binds
+          hl.bind("SUPER + 1", function() hl.dsp.focus({ workspace = 1 }) end)
+          hl.bind("SUPER + 2", function() hl.dsp.focus({ workspace = 2 }) end)
+          hl.bind("SUPER + 3", function() hl.dsp.focus({ workspace = 3 }) end)
+          hl.bind("SUPER + 4", function() hl.dsp.focus({ workspace = 4 }) end)
+          hl.bind("SUPER + 5", function() hl.dsp.focus({ workspace = 5 }) end)
+          hl.bind("SUPER + F", function() hl.dsp.focus({ workspace = 6 }) end)
+          hl.bind("SUPER + P", function() hl.dsp.focus({ workspace = 7 }) end)
+          hl.bind("SUPER + B", function() hl.dsp.focus({ workspace = 8 }) end)
+
+          hl.bind("SUPER + CONTROL + SHIFT + 1", function() hl.dsp.window.move({ workspace = 1, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + 2", function() hl.dsp.window.move({ workspace = 2, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + 3", function() hl.dsp.window.move({ workspace = 3, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + 4", function() hl.dsp.window.move({ workspace = 4, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + 5", function() hl.dsp.window.move({ workspace = 5, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + F", function() hl.dsp.window.move({ workspace = 6, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + P", function() hl.dsp.window.move({ workspace = 7, focus = true }) end)
+          hl.bind("SUPER + CONTROL + SHIFT + B", function() hl.dsp.window.move({ workspace = 8, focus = true }) end)
+
+          hl.bind("SUPER + CONTROL + A", function() hl.dsp.layout("colresize -conf") end)
+          hl.bind("SUPER + CONTROL + S", function() hl.dsp.layout("colresize +conf") end)
+
+          hl.bind("SUPER + SHIFT + S", function() hl.dsp.window.move({ direction = "r" }) end)
+          hl.bind("SUPER + SHIFT + A", function() hl.dsp.window.move({ direction = "l" }) end)
+          hl.bind("SUPER + SHIFT + W", function() hl.dsp.window.move({ direction = "u" }) end)
+          hl.bind("SUPER + SHIFT + R", function() hl.dsp.window.move({ direction = "d" }) end)
+
+          hl.bind("SUPER + S", function() hl.dsp.layout("focus r") end)
+          hl.bind("SUPER + A", function() hl.dsp.layout("focus l") end)
+          hl.bind("SUPER + W", function() hl.dsp.layout("focus u") end)
+          hl.bind("SUPER + R", function() hl.dsp.layout("focus d") end)
+
+          hl.bind("SUPER + SHIFT + T", function() hl.dsp.layout("promote") end)
+
+          hl.bind("SUPER + CONTROL + SHIFT + S", function() hl.dsp.layout("swapcol r") end)
+          hl.bind("SUPER + CONTROL + SHIFT + A", function() hl.dsp.layout("swapcol l") end)
+
+          hl.bind("SUPER + CONTROL + W", function() hl.dsp.window.resize({ x = 0, y = -30, relative = true }) end, { repeating = true })
+          hl.bind("SUPER + CONTROL + R", function() hl.dsp.window.resize({ x = 0, y = 30, relative = true }) end, { repeating = true })
+        '';
+
+        settings = {
+          # exec_cmd = [
+          #   "bash /home/${userSettings.username}/platform_power_profile.sh"
+          #   "gammastep -O 7250"
+          # ];
+
+          input = {
+            kb_layout = "us";
+            kb_variant = "colemak_dh";
+
+            numlock_by_default = true;
+
+            follow_mouse = 2;
+            sensitivity = 0.2;
+            accel_profile = "0.2144477506 0.000 0.307 0.615 1.077 1.539 2.002 2.505 3.208 3.910 4.613 5.315 6.018 6.720 7.423 8.125 8.828 9.530 10.233 10.935 12.387";
+
+            touchpad = {
+              natural_scroll = true;
             };
           };
-        };
-        default = { };
-      };
-      config = {
-        home.file."/home/${userSettings.username}/platform_power_profile.sh" = {
-          executable = true;
-          text = ''
-            FILE="/sys/firmware/acpi/platform_profile"
 
-            inotifywait -m -e modify "$FILE" --format '%w%f' | while read FILE_CHANGED
-            do
-                PROFILE=$(cat "$FILE_CHANGED")
-
-                case "$PROFILE" in
-                    low-power)
-                        MSG="Power Saver Mode"
-                        ;;
-                    balanced)
-                        MSG="Balanced Mode"
-                        ;;
-                    performance)
-                        MSG="Performance Mode"
-                        ;;
-                    *)
-                        MSG="Unknown mode: $PROFILE"
-                        ;;
-                esac
-
-                notify-send "Lenovo Fn+Q" "$MSG"
-            done
-          '';
-        };
-
-        home.packages = with pkgs; [
-          gammastep
-          brightnessctl
-          wireplumber
-
-          hyprshot
-        ];
-
-        wayland.windowManager.hyprland = {
-          enable = true;
-          package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-          portalPackage =
-            inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-          configType = "hyprlang";
-          settings = {
-            monitor = [
-              "eDP-1,preferred,0x0,1.0"
-            ];
-
-            exec-once = [
-              "bash /home/${userSettings.username}/platform_power_profile.sh"
-              "gammastep -O 7250"
-            ]
-            ++ config.dotfiles.hyprland.exec-once;
-
-            input = {
-              kb_layout = "us";
-              kb_variant = "colemak_dh";
-
-              numlock_by_default = true;
-
-              follow_mouse = 2;
-              sensitivity = 0.2;
-              accel_profile = "0.2144477506 0.000 0.307 0.615 1.077 1.539 2.002 2.505 3.208 3.910 4.613 5.315 6.018 6.720 7.423 8.125 8.828 9.530 10.233 10.935 12.387";
-
-              touchpad = {
-                natural_scroll = true;
-              };
-            };
-
-            device = {
+          # Lua config expects device rules as a list/array of tables
+          device = [
+            {
               name = "instant-usb-gaming-mouse-";
               accel_profile = "flat";
               sensitivity = -0.2;
-            };
+            }
+          ];
 
-            gestures = {
-              workspace_swipe_distance = 600;
-              workspace_swipe_min_speed_to_force = 30;
-            };
-
-            gesture = [
-              # Scroll how much force and distance needed to swipe gesture
-              "3, vertical, workspace"
-            ];
-
-            general = lib.recursiveUpdate {
-              layout = "scrolling";
-
-              "col.inactive_border" = config.dotfiles.hyprland.color.inactive_border;
-              "col.active_border" = config.dotfiles.hyprland.color.active_border;
-            } config.dotfiles.hyprland.general;
-
-            scrolling = {
-              fullscreen_on_one_column = true;
-              column_width = 0.5;
-              explicit_column_widths = "0.25, 0.333, 0.5, 0.667, 0.75, 1.0";
-            };
-
-            bezier = config.dotfiles.hyprland.bezier;
-            animation = config.dotfiles.hyprland.animation;
-            decoration = lib.recursiveUpdate {
-              shadow.color = config.dotfiles.hyprland.color.shadow_active;
-              shadow.color_inactive = config.dotfiles.hyprland.color.shadow_inactive;
-            } config.dotfiles.hyprland.decoration;
-
-            "$mainMod" = "SUPER";
-            bind = [
-              # General Bindings
-              "$mainMod, Q, killactive,"
-              "$mainMod, M, layoutmsg, colresize 1.0"
-              "$mainMod, V, togglefloating,"
-              "$mainMod SHIFT, DELETE, exit"
-              "$mainMod, F11, fullscreen,"
-              "$mainMod SHIFT, F11, fullscreenstate, 0 2"
-
-              "$mainMod, F1, exec, bash /home/${userSettings.username}/hyprland_battery.sh"
-
-              # TODO: Screenshots
-              "$mainMod SHIFT, PRINT, exec, hyprshot -m region -o /home/${userSettings.username}/Pictures/Screenshots/" # TODO: Declare a global username variable
-              ", PRINT, exec, hyprshot -m active -m output -o /home/${userSettings.username}/Pictures/Screenshots/"
-
-              "$mainMod, 1, workspace, 1"
-              "$mainMod, 2, workspace, 2"
-              "$mainMod, 3, workspace, 3"
-              "$mainMod, 4, workspace, 4"
-              "$mainMod, 5, workspace, 5"
-              "$mainMod, F, workspace, 6"
-              "$mainMod, P, workspace, 7"
-              "$mainMod, B, workspace, 8"
-              "$mainMod, J, workspace, 9"
-
-              "$mainMod CONTROL, A, layoutmsg, colresize -conf"
-              "$mainMod CONTROL, S, layoutmsg, colresize +conf"
-
-              "$mainMod SHIFT, S, movewindow, r"
-              "$mainMod SHIFT, A, movewindow, l"
-              "$mainMod SHIFT, W, movewindow, u"
-              "$mainMod SHIFT, R, movewindow, d"
-
-              "$mainMod SHIFT, T, layoutmsg, promote"
-
-              "$mainMod CONTROL SHIFT, S, layoutmsg, swapcol r"
-              "$mainMod CONTROL SHIFT, A, layoutmsg, swapcol l"
-
-              "$mainMod CONTROL SHIFT, 1, movetoworkspace, 1"
-              "$mainMod CONTROL SHIFT, 2, movetoworkspace, 2"
-              "$mainMod CONTROL SHIFT, 3, movetoworkspace, 3"
-              "$mainMod CONTROL SHIFT, 4, movetoworkspace, 4"
-              "$mainMod CONTROL SHIFT, 5, movetoworkspace, 5"
-              "$mainMod CONTROL SHIFT, F, movetoworkspace, 6"
-              "$mainMod CONTROL SHIFT, P, movetoworkspace, 7"
-              "$mainMod CONTROL SHIFT, B, movetoworkspace, 8"
-              "$mainMod CONTROL SHIFT, J, movetoworkspace, 9"
-
-              "$mainMod, S, layoutmsg, focus r"
-              "$mainMod, A, layoutmsg, focus l"
-              "$mainMod, W, layoutmsg, focus u"
-              "$mainMod, R, layoutmsg, focus d"
-
-              "$mainMod, mouse_down, workspace, e-1"
-              "$mainMod, mouse_up, workspace, e-1"
-            ]
-            ++ config.dotfiles.hyprland.bind;
-
-            binde = [
-              "$mainMod CONTROL, W, resizeactive, 0 -30"
-              "$mainMod CONTROL, R, resizeactive, 0 30"
-            ];
-
-            bindel = [
-              ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
-              ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
-              ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-              ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-              # ",XF86MonBrightnessUp, exec, brightnessctl s 5%+"
-              # ",XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-            ]
-            ++ config.dotfiles.hyprland.bindel;
-
-            bindl = [
-              ", XF86AudioNext, exec, playerctl next"
-              ", XF86AudioPause, exec, playerctl play-pause"
-              ", XF86AudioPlay, exec, playerctl play-pause"
-              ", XF86AudioPrev, exec, playerctl previous"
-            ];
-
-            bindm = [
-              "$mainMod, mouse:272, movewindow"
-              "$mainMod, mouse:273, resizewindow"
-            ];
+          gestures = {
+            workspace_swipe_distance = 600;
+            workspace_swipe_min_speed_to_force = 30;
           };
-        };
 
-        home.file."/home/pranavanath/hyprland_battery.sh" = {
-          executable = true;
-          text = ''
-            #!/usr/bin/env sh
-            HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
-            if [ "$HYPRGAMEMODE" = 1 ] ; then
-                hyprctl --batch "\
-                    keyword animations:enabled 0;\
-                    keyword animation borderangle,0; \
-                    keyword decoration:shadow:enabled 0;\
-                    keyword decoration:blur:enabled 0;\
-                    keyword decoration:fullscreen_opacity 1;\
-                    keyword general:gaps_in 0;\
-                    keyword general:gaps_out 0;\
-                    keyword general:border_size 1;\
-                    keyword decoration:rounding 0"
-                notify-send "Hyprland" "Gamemode ON"
-                exit
-            else
-                notify-send "Hyprland" "Gamemode OFF"
-                hyprctl reload
-                exit 0
-            fi
-            exit 1
-          '';
+          general =  {
+            layout = "scrolling";
+          };
+
+          scrolling = {
+            fullscreen_on_one_column = true;
+            column_width = 0.5;
+            explicit_column_widths = "0.25, 0.333, 0.5, 0.667, 0.75, 1.0";
+          };
+
+          # bindel = [
+          #   ",XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+"
+          #   ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+          #   ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          #   ",XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          # ];
+          #
+          # bindl = [
+          #   ", XF86AudioNext, exec, playerctl next"
+          #   ", XF86AudioPause, exec, playerctl play-pause"
+          #   ", XF86AudioPlay, exec, playerctl play-pause"
+          #   ", XF86AudioPrev, exec, playerctl previous"
+          # ];
+          #
+          # bindm = [
+          #   "SUPER, mouse:272, movewindow"
+          #   "SUPER, mouse:273, resizewindow"
+          # ];
         };
       };
 
+      home.file."/home/pranavanath/hyprland_battery.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env sh
+          HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
+          if [ "$HYPRGAMEMODE" = 1 ] ; then
+              hyprctl --batch "\
+                  keyword animations:enabled 0;\
+                  keyword animation borderangle,0; \
+                  keyword decoration:shadow:enabled 0;\
+                  keyword decoration:blur:enabled 0;\
+                  keyword decoration:fullscreen_opacity 1;\
+                  keyword general:gaps_in 0;\
+                  keyword general:gaps_out 0;\
+                  keyword general:border_size 1;\
+                  keyword decoration:rounding 0"
+              notify-send "Hyprland" "Gamemode ON"
+              exit
+          else
+              notify-send "Hyprland" "Gamemode OFF"
+              hyprctl reload
+              exit 0
+          fi
+          exit 1
+        '';
+      };
     };
 }

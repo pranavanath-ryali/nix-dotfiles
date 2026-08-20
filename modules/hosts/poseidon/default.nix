@@ -44,6 +44,7 @@
       ]
       # Load wm
       ++ lib.optional (globalSettings.wm == "hyprland") self.nixosModules.hyprlandModule
+      ++ lib.optional (globalSettings.wm == "mangowm") self.nixosModules.mangowmModule
       # Load rices
       ++ lib.optional (globalSettings.rice == "pitch-black") self.nixosModules.pitchBlackRice;
 
