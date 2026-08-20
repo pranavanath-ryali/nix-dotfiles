@@ -43,9 +43,10 @@
       ]
       # Load wm
       ++ lib.optional (globalSettings.wm == "hyprland") self.homeModules.hyprlandModule
-      ++ lib.optional (globalSettings.wm == "hyprland") self.homeModules.mangowmModule
+      ++ lib.optional (globalSettings.wm == "mangowm") self.homeModules.mangowmModule
       # Load rice
-      ++ lib.optional (globalSettings.rice == "pitch-black") self.homeModules.pitchBlackRice;
+      ++ lib.optional (globalSettings.rice == "pitch-black") self.homeModules.pitchBlackRice
+      ++ lib.optional (globalSettings.rice == "modern-glass") self.homeModules.modernGlassRice;
 
       programs.home-manager.enable = true;
     };

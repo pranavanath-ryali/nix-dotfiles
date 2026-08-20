@@ -46,7 +46,8 @@
       ++ lib.optional (globalSettings.wm == "hyprland") self.nixosModules.hyprlandModule
       ++ lib.optional (globalSettings.wm == "mangowm") self.nixosModules.mangowmModule
       # Load rices
-      ++ lib.optional (globalSettings.rice == "pitch-black") self.nixosModules.pitchBlackRice;
+      ++ lib.optional (globalSettings.rice == "pitch-black") self.nixosModules.pitchBlackRice
+      ++ lib.optional (globalSettings.rice == "modern-glass") self.nixosModules.modernGlassRice;
 
       networking.firewall = {
         enable = true;

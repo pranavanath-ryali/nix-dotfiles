@@ -37,6 +37,9 @@
 
     # Vicinae
     vicinae.url = "github:vicinaehq/vicinae";
+
+    # San Francisco Fonts | Apple Fonts
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
   };
 
   outputs =
@@ -56,7 +59,7 @@
 
         globalSettings = {
           wm = "mangowm";
-          rice = "none";
+          rice = "modern-glass";
           browser = "zen";
           virtualization = true;
           openPorts = [

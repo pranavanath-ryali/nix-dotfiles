@@ -44,7 +44,6 @@
         nerd-fonts.martian-mono
         nerd-fonts.iosevka
       ];
-
     };
 
   flake.homeModules.pitchBlackRice =
