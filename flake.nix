@@ -23,6 +23,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Noctalia Shell
+    noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia.inputs.nixpkgs.follows = "nixpkgs";
+
     # NVF
     nvf.url = "github:NotAShelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +44,7 @@
 
     # San Francisco Fonts | Apple Fonts
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+    apple-fonts.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

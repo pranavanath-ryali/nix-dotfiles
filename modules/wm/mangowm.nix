@@ -104,7 +104,7 @@
           scroller_structs = 12;
           scroller_default_proportion = 0.5;
           scroller_focus_center = 0;
-          scroller_prefer_center = 1;
+          scroller_prefer_center = 0;
           scroller_proportion_preset = "0.33, 0.5, 0.67, 1.0";
 
           tagrule = [
@@ -121,15 +121,18 @@
             "SUPER + SHIFT, F11, togglefakefullscreen"
             "SUPER, H, togglemaximizescreen"
 
+            "SUPER, F1, spawn, bash '/home/${userSettings.username}/mangowm_powersave.sh'"
+            "SUPER, F2, spawn, bash '/home/${userSettings.username}/mangowm_performance.sh'"
+
             "SUPER, W, focusdir, up"
             "SUPER, S, focusdir, down"
             "SUPER, A, focusdir, left"
             "SUPER, D, focusdir, right"
 
-            "SUPER + CTRL, W, resizewin, 0, +20"
-            "SUPER + CTRL, S, resizewin, 0, -20"
-            "SUPER + CTRL, A, resizewin, -20, 0"
-            "SUPER + CTRL, D, resizewin, +20, 0"
+            "SUPER + CTRL, W, resizewin, 0, +40"
+            "SUPER + CTRL, S, resizewin, 0, -40"
+            "SUPER + CTRL, A, resizewin, -40, 0"
+            "SUPER + CTRL, D, resizewin, +40, 0"
 
             "SUPER, C, switch_proportion_preset"
 
@@ -176,13 +179,11 @@
 
             # Brightness
             "NONE,XF86MonBrightnessUp,spawn,brightnessctl s +2%"
-            "SHIFT,XF86MonBrightnessUp,spawn,brightnessctl s 100%"
             "NONE,XF86MonBrightnessDown,spawn,brightnessctl s 2%-"
-            "SHIFT,XF86MonBrightnessDown,spawn,brightnessctl s 1%"
 
             # Volume
-            "NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_SINK@ 5%+"
-            "NONE,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_SINK@ 5%-"
+            "NONE,XF86AudioRaiseVolume,spawn,wpctl set-volume @DEFAULT_SINK@ 1%+"
+            "NONE,XF86AudioLowerVolume,spawn,wpctl set-volume @DEFAULT_SINK@ 1%-"
             "NONE,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_SINK@ toggle"
             "SHIFT,XF86AudioMute,spawn,wpctl set-mute @DEFAULT_SOURCE@ toggle"
 
@@ -192,6 +193,28 @@
             "NONE,XF86AudioPlay,spawn,playerctl play-pause"
           ];
         };
+      };
+
+      home.file."/home/${userSettings.username}/mangowm_powersave.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env sh
+          mmsg dispatch setoption, blur, 0
+          mmsg dispatch setoption, shadows, 0
+          mmsg dispatch setoption, border_radius, 0
+          mmsg dispatch setoption, animations, 0
+
+          notify-send "Mango" "Powersaving"
+        '';
+      };
+
+      home.file."/home/${userSettings.username}/mangowm_performance.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env sh
+          mmsg dispatch, reload_config
+          notify-send "Mango" "Performance"
+        '';
       };
 
       home.file."/home/${userSettings.username}/.config/xdg-desktop-portal/mango-portals.conf".text = ''
