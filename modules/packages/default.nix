@@ -100,6 +100,7 @@
         inotify-tools
         libnotify
         cava
+        prismlauncher
 
         qimgv
         darktable

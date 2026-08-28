@@ -53,6 +53,17 @@
         shadows_position_y = 2;
         shadowscolor = "0x000000ff";
 
+        tag_animation_direction = 0;
+        animation_type_open = "slide";
+        animation_type_close = "zoom";
+        layer_animation_type_open = "slide";
+        layer_animation_type_close = "slide";
+
+        animation_duration_open = 300;
+        animation_duration_close = 400;
+        animation_duration_move = 500;
+        animation_duration_tag = 400;
+
         bind = [
           "SUPER, K, spawn, nautilus"
           "SUPER + ALT, W, spawn, noctalia msg panel-toggle wallpaper"

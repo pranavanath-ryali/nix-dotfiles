@@ -80,6 +80,11 @@
       home.packages = with pkgs; [
         brightnessctl
         playerctl
+
+        grim
+        slurp
+        satty
+        wayfreeze
       ];
 
       wayland.windowManager.mango = {
@@ -100,6 +105,11 @@
           xkb_rules_layout = "us";
           xkb_rules_variant = "colemak_dh";
 
+          trackpad_natural_scrolling = 1;
+
+          mouse_accel_profile = 1;
+          mouse_accel_speed = -0.1;
+
           # Scroller Settings
           scroller_structs = 12;
           scroller_default_proportion = 0.5;
@@ -107,8 +117,24 @@
           scroller_prefer_center = 0;
           scroller_proportion_preset = "0.33, 0.5, 0.67, 1.0";
 
+          # Gestuures
+          gesturebind = [
+            "none,left,3,focusdir,left"
+            "none,right,3,focusdir,right"
+            "none,up,3,focusdir,up"
+            "none,down,3,focusdir,down"
+
+            "none, up, 4, viewtoright"
+            "none, down, 4, viewtoleft"
+          ];
+
           tagrule = [
             "id:*, layout_name:fair"
+          ];
+
+          mousebind = [
+            "SUPER,btn_left,moveresize,curmove"
+            "SUPER,btn_right,moveresize,curresize"
           ];
 
           bind = [
@@ -121,8 +147,13 @@
             "SUPER + SHIFT, F11, togglefakefullscreen"
             "SUPER, H, togglemaximizescreen"
 
+            "SUPER, V, togglefloating"
+
             "SUPER, F1, spawn, bash '/home/${userSettings.username}/mangowm_powersave.sh'"
             "SUPER, F2, spawn, bash '/home/${userSettings.username}/mangowm_performance.sh'"
+
+            "NONE,Print,spawn,bash /home/${userSettings.username}/.config/mango/scripts/freeze_screenshot.sh"
+            "SUPER,Print,spawn,bash /home/${userSettings.username}/.config/mango/scripts/freeze_region_screenshot.sh"
 
             "SUPER, W, focusdir, up"
             "SUPER, S, focusdir, down"
@@ -193,6 +224,41 @@
             "NONE,XF86AudioPlay,spawn,playerctl play-pause"
           ];
         };
+      };
+
+      home.file."/home/${userSettings.username}/.config/mango/scripts/freeze_screenshot.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env bash
+          pipe=$(mktemp -u).fifo
+          mkfifo "$pipe"
+          wayfreeze --after-freeze-timeout 100 --after-freeze-cmd "echo > $pipe" &
+          wayfreeze_pid=$!
+          read -r < "$pipe"
+          grim "$HOME/Pictures/Screenshots/$(date +%Y%m%d%H%M%S).png"
+          kill "$wayfreeze_pid" 2>/dev/null
+          rm -f "$pipe"
+        '';
+      };
+      home.file."/home/${userSettings.username}/.config/mango/scripts/freeze_region_screenshot.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env bash
+          pipe=$(mktemp -u).fifo
+          mkfifo "$pipe"
+          wayfreeze --after-freeze-timeout 100 --after-freeze-cmd "echo > $pipe" &
+          wayfreeze_pid=$!
+          read -r < "$pipe"
+          geometry=$(slurp -d)
+          if [[ -z "$geometry" ]]; then
+            kill "$wayfreeze_pid" 2>/dev/null
+            rm -f "$pipe"
+            exit 1
+          fi
+          grim -g "$geometry" "$HOME/Pictures/Screenshots/$(date +%Y%m%d%H%M%S).png"
+          kill "$wayfreeze_pid" 2>/dev/null
+          rm -f "$pipe"
+        '';
       };
 
       home.file."/home/${userSettings.username}/mangowm_powersave.sh" = {
