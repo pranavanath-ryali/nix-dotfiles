@@ -1,7 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-26.05";
-    nixpkgs-2511.url = "github:NixOS/nixpkgs/release-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
@@ -67,9 +68,27 @@
           rice = "modern-glass";
           browser = "zen";
           virtualization = true;
-          openPorts = [
+
+          allowedTCPPorts = [
+            53317
+
+            2283
             4533
             5000
+          ];
+          allowedUDPPortRanges = [
+            {
+              from = 4000;
+              to = 4007;
+            }
+            {
+              from = 53315;
+              to = 53318;
+            }
+            {
+              from = 8000;
+              to = 8010;
+            }
           ];
         };
       };

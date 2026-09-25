@@ -13,6 +13,8 @@
       xdg-desktop-portal-wlr
       xdg-desktop-portal
       xdg-desktop-portal-gtk
+
+      wlr-randr
     ];
 
     services.xserver = {
@@ -26,7 +28,10 @@
     programs.mango = {
       enable = true;
     };
+
+    services.gnome.gnome-online-accounts.enable = true;
     services.gnome.gnome-keyring.enable = true;
+    security.pam.services.gdm.enableGnomeKeyring = true;
 
     # Mountable Drives
     services.devmon.enable = true;
@@ -85,6 +90,14 @@
         slurp
         satty
         wayfreeze
+
+        gnome-clocks
+        gnome-calendar
+        nautilus
+        sushi
+        file-roller
+        papers
+        loupe
       ];
 
       wayland.windowManager.mango = {
@@ -106,6 +119,7 @@
           xkb_rules_variant = "colemak_dh";
 
           trackpad_natural_scrolling = 1;
+          sloppyfocus = 0;
 
           mouse_accel_profile = 1;
           mouse_accel_speed = -0.1;
@@ -160,10 +174,10 @@
             "SUPER, A, focusdir, left"
             "SUPER, D, focusdir, right"
 
-            "SUPER + CTRL, W, resizewin, 0, +40"
-            "SUPER + CTRL, S, resizewin, 0, -40"
-            "SUPER + CTRL, A, resizewin, -40, 0"
-            "SUPER + CTRL, D, resizewin, +40, 0"
+            "SUPER + CTRL, W, resizewin, 0, +80"
+            "SUPER + CTRL, S, resizewin, 0, -80"
+            "SUPER + CTRL, A, resizewin, -80, 0"
+            "SUPER + CTRL, D, resizewin, +80, 0"
 
             "SUPER, C, switch_proportion_preset"
 

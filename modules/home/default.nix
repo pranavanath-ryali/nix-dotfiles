@@ -16,6 +16,11 @@
         extraSpecialArgs = {
           inherit self;
           inherit inputs;
+
+          pkgs-unstable = import inputs.nixpkgs-unstable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
         };
         modules = [
           self.homeModules.homeModule

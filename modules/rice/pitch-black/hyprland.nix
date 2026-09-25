@@ -17,15 +17,6 @@
         self.homeModules.hyprlockModule
       ];
 
-      # ======================== COMMON APPLICATIONS ========================
-      home.packages = with pkgs; [
-        nautilus
-        file-roller
-        euphonica
-        zathura
-
-        brightnessctl
-      ];
 
       # ======================== HYPRLOCK ========================
       # config.dotfiles.hyprlock.settings = {

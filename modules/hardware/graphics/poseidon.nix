@@ -15,7 +15,7 @@
       ];
     };
     hardware.enableRedistributableFirmware = true;
-    # boot.kernelParams = [ "i915.force_probe=46a8" ];
+    boot.kernelParams = [ "i915.force_probe=46a8" ];
 
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD"; # Prefer the modern iHD backend

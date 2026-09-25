@@ -79,6 +79,13 @@
         wireplumber
 
         hyprshot
+
+        nautilus
+        file-roller
+        euphonica
+        zathura
+
+        brightnessctl
       ];
 
       wayland.windowManager.hyprland = {

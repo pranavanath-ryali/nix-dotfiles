@@ -76,6 +76,7 @@
     {
       self,
       pkgs,
+      pkgs-unstable,
       inputs,
       lib,
       ...
@@ -119,11 +120,10 @@
         strawberry
         lrcget
 
-        bottles
         discord
 
         obs-studio
         davinci-resolve
-      ];
+      ] ++ [ pkgs-unstable.bottles ];
     };
 }

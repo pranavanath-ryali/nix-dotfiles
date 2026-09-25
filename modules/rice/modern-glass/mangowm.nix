@@ -7,12 +7,6 @@
       self.homeModules.vicinaeModule
     ];
 
-    home.packages = with pkgs; [
-      nautilus
-      file-roller
-      zathura
-    ];
-
     # ==================[ MANGOWM ]==================
     wayland.windowManager.mango = {
       autostart_sh = ''

@@ -136,23 +136,56 @@
               enable = true;
               ui.enable = true;
               ui.autoStart = true;
+
+              mappings = {
+                continue = "<F5>";
+                terminate = "<F17>";
+                restart = "<F6>";
+
+                toggleBreakpoint = "<F9>";
+                stepOver = "<F10>";
+                stepInto = "<F11>";
+                stepOut = "<S-F11>";
+              };
             };
           };
 
           languages = {
-            odin = {
-              enable = true;
-            };
             rust = {
               enable = true;
-              dap.enable = true;
+              lsp.enable = false;
+              # dap.enable = true;
+              # dap.debugger = [ "codelldb" ];
 
-              extensions.crates-nvim.enable = true;
               format.enable = true;
               format.type = [ "rustfmt" ];
               treesitter.enable = true;
+
+              extensions = {
+                crates-nvim.enable = true;
+                ferris-nvim = {
+                  enable = true;
+                  setupOpts = {
+                    create_commands = true;
+                  };
+                };
+                rustaceanvim.enable = true;
+              };
             };
-            clang.enable = true;
+
+            odin = {
+              enable = true;
+              lsp.enable = true;
+              dap.enable = true;
+            };
+
+            clang = {
+              enable = true;
+              format.enable = true;
+              dap.enable = true;
+              extraDiagnostics.enable = true;
+            };
+
             python.enable = true;
             nix.enable = true;
           };
@@ -194,6 +227,8 @@
           utility = {
             sleuth.enable = true;
             direnv.enable = true;
+
+            oil-nvim.enable = true;
             oil-nvim.gitStatus.enable = true;
           };
 
@@ -211,7 +246,7 @@
               enable_cursor_hijack = true;
             };
           };
-        
+
           projects.project-nvim.enable = true;
           ui = {
             noice.enable = true;
@@ -276,6 +311,35 @@
               action = "<cmd>lua require('conform').format()<CR>";
               silent = true;
               desc = "Format File";
+            }
+
+            {
+              key = "<C-w>,";
+              mode = [ "n" ];
+              action = "<cmd>vertical resize -5<CR>";
+              silent = true;
+              desc = "Resize vertical split -5";
+            }
+            {
+              key = "<C-w>.";
+              mode = [ "n" ];
+              action = "<cmd>vertical resize +5<CR>";
+              silent = true;
+              desc = "Resize vertical split +5";
+            }
+            {
+              key = "<C-w>+";
+              mode = [ "n" ];
+              action = "<cmd>resize +5<CR>";
+              silent = true;
+              desc = "Resize split +5";
+            }
+            {
+              key = "<C-w>-";
+              mode = [ "n" ];
+              action = "<cmd>resize -5<CR>";
+              silent = true;
+              desc = "Resize split -5";
             }
           ];
         };

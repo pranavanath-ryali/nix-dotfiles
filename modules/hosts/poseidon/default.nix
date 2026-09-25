@@ -11,7 +11,7 @@
     specialArgs = {
       inherit self;
       inherit inputs;
-      pkgs-2511 = import inputs.nixpkgs-2511 {
+      pkgs-unstable = import inputs.nixpkgs-unstable {
         system = "x86_64-linux";
         config.allowUnfree = true;
       };
@@ -51,7 +51,8 @@
 
       networking.firewall = {
         enable = true;
-        allowedTCPPorts = globalSettings.openPorts;
+        allowedTCPPorts = globalSettings.allowedTCPPorts;
+        allowedUDPPortRanges = globalSettings.allowedUDPPortRanges;
       };
 
       nixpkgs.config.allowUnfree = true;
@@ -99,6 +100,14 @@
           "wheel"
         ];
       };
+
+      services.usbmuxd.enable = true;
+
+      # Recommended packages to interact with iOS devices
+      environment.systemPackages = with pkgs; [
+        libimobiledevice
+        ifuse
+      ];
 
       system.stateVersion = "25.11";
     };
