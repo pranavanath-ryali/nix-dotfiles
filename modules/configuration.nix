@@ -7,6 +7,7 @@
       self.nixosModules.localsend
       self.nixosModules.flatpak
       self.nixosModules.steam
+      self.nixosModules.sunshine
 
       self.nixosModules.hyprland
       self.nixosModules.modernSimpleRice
